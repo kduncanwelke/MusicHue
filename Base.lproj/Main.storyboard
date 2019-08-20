@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MusicHue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1F-DP-euJ">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" red="0.98431372549999996" green="0.79607843140000001" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l1t-jV-nUc">
+                                <rect key="frame" x="167" y="408" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="7Lu-GH-4yd"/>
+                                    <constraint firstAttribute="width" secondItem="l1t-jV-nUc" secondAttribute="height" multiplier="1:1" id="WCO-pm-tmn"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="pause"/>
+                                <connections>
+                                    <action selector="playPausePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6zh-1n-LUY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GO7-cc-I4B">
+                                <rect key="frame" x="151" y="538" width="112" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="   Select Music   "/>
+                                <connections>
+                                    <action selector="selectMusicPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H4X-nv-m0O"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4U0-Qf-ab2">
+                                <rect key="frame" x="120.5" y="144" width="173" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36f-OT-GZE">
+                                <rect key="frame" x="150" y="205" width="114" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="l1t-jV-nUc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7Ii-GH-cdY"/>
+                            <constraint firstItem="GO7-cc-I4B" firstAttribute="top" secondItem="l1t-jV-nUc" secondAttribute="bottom" constant="50" id="BG2-h7-KX0"/>
+                            <constraint firstItem="l1t-jV-nUc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CPg-wJ-Fva"/>
+                            <constraint firstItem="t1F-DP-euJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="GST-ta-LWQ"/>
+                            <constraint firstItem="4U0-Qf-ab2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Mh2-Ma-vSV"/>
+                            <constraint firstItem="t1F-DP-euJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cQB-KE-V7D"/>
+                            <constraint firstItem="GO7-cc-I4B" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fUg-mR-qWY"/>
+                            <constraint firstAttribute="bottom" secondItem="t1F-DP-euJ" secondAttribute="bottom" id="inB-sZ-dyq"/>
+                            <constraint firstItem="4U0-Qf-ab2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="mE3-Od-AHM"/>
+                            <constraint firstItem="36f-OT-GZE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mPl-k3-lvt"/>
+                            <constraint firstAttribute="trailing" secondItem="t1F-DP-euJ" secondAttribute="trailing" id="tJv-Kv-vwd"/>
+                            <constraint firstItem="36f-OT-GZE" firstAttribute="top" secondItem="4U0-Qf-ab2" secondAttribute="bottom" constant="25" id="zdB-OB-JBS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="background" destination="t1F-DP-euJ" id="S4j-97-O5w"/>
+                        <outlet property="currentlyPlaying" destination="36f-OT-GZE" id="1It-CO-gte"/>
+                        <outlet property="playPauseButton" destination="l1t-jV-nUc" id="Icp-yj-nEO"/>
+                        <outlet property="selectMusicButton" destination="GO7-cc-I4B" id="wqI-9P-mDg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="116.51785714285714"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pause" width="900" height="900"/>
+    </resources>
+</document>
