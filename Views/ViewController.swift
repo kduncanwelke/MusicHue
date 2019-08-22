@@ -24,6 +24,8 @@ class ViewController: UIViewController {
 	@IBOutlet weak var albumArt: UIImageView!
 	@IBOutlet weak var timeLabel: UILabel!
 	@IBOutlet weak var progress: UIProgressView!
+	@IBOutlet weak var repeatButton: UIButton!
+	@IBOutlet weak var shuffleButton: UIButton!
 	
 	// MARK: Variables
 	
@@ -32,10 +34,16 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
+		mediaPlayer.beginGeneratingPlaybackNotifications()
+		
 		NotificationCenter.default.addObserver(self, selector: #selector(songChanged), name: .MPMusicPlayerControllerNowPlayingItemDidChange, object: mediaPlayer
 		)
+		
 		selectMusicButton.layer.cornerRadius = 10
 		checkStatus()
+		
+		mediaPlayer.repeatMode = .none
+		mediaPlayer.shuffleMode = .off
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +62,11 @@ class ViewController: UIViewController {
 		artist.text = mediaPlayer.nowPlayingItem?.albumArtist
 		albumArt.image = mediaPlayer.nowPlayingItem?.artwork?.image(at: albumArt.bounds.size)
 		
+		updateTimeLabel()
+		updateProgress()
+	}
+	
+	func updateTimeLabel() {
 		timeLabel.text = {
 			if Int(mediaPlayer.currentPlaybackTime) < 60 {
 				if Int(mediaPlayer.currentPlaybackTime) < 10 {
@@ -71,7 +84,9 @@ class ViewController: UIViewController {
 				}
 			}
 		}()
-		
+	}
+	
+	func updateProgress() {
 		if mediaPlayer.currentPlaybackTime > 0 {
 			if let current = mediaPlayer.nowPlayingItem {
 				let prog = mediaPlayer.currentPlaybackTime / current.playbackDuration
@@ -83,15 +98,24 @@ class ViewController: UIViewController {
 		}
 	}
 	
+	func startTimer(doesRepeat: Bool) {
+		if let item = mediaPlayer.nowPlayingItem {
+			let duration = Int(item.playbackDuration)
+			TimerManager.beginTimer(with: Int(mediaPlayer.currentPlaybackTime), maxTime: duration, label: timeLabel, bar: progress, isRepeating: doesRepeat)
+		}
+	}
+	
 	func checkStatus() {
 		if mediaPlayer.nowPlayingItem == nil {
 			playPauseButton.isEnabled = false
 			forwardButton.isEnabled = false
 			backButton.isEnabled = false
+			repeatButton.isEnabled = false
 		} else {
 			playPauseButton.isEnabled = true
 			forwardButton.isEnabled = true
 			backButton.isEnabled = true
+			repeatButton.isEnabled = true
 			
 			setUI()
 			
@@ -105,44 +129,121 @@ class ViewController: UIViewController {
 	
 	@objc func songChanged() {
 		print("song changed")
-		setUI()
+		checkStatus()
 		timeLabel.text = "0:00"
 		progress.setProgress(0.0, animated: false)
 		
 		TimerManager.stopTimer()
 		
-		if let item = mediaPlayer.nowPlayingItem {
-			let duration = Int(item.playbackDuration)
-			TimerManager.beginTimer(with: 0, maxTime: duration, label: timeLabel, bar: progress)
+		if mediaPlayer.playbackState == .playing {
+			startTimer(doesRepeat: false)
 		}
 	}
 	
 	// MARK: IBActions
 	
-	@IBAction func backPressed(_ sender: UIButton) {
+	@IBAction func backTap(_ sender: UITapGestureRecognizer) {
+		backButton.animateButton()
 		mediaPlayer.skipToPreviousItem()
 		TimerManager.stopTimer()
 	}
 	
+	@IBAction func backLongPress(_ sender: UILongPressGestureRecognizer) {
+		if sender.state == .ended {
+			mediaPlayer.endSeeking()
+			backButton.popUp()
+			checkStatus()
+			startTimer(doesRepeat: false)
+		} else if sender.state == .began {
+			TimerManager.stopTimer()
+			backButton.pressDown()
+		} else {
+			mediaPlayer.beginSeekingBackward()
+			updateTimeLabel()
+			updateProgress()
+		}
+	}
+	
 	@IBAction func playPausePressed(_ sender: UIButton) {
+		playPauseButton.animateButton()
 		if mediaPlayer.playbackState == .playing {
 			mediaPlayer.pause()
 			playPauseButton.setImage(UIImage(named: "play"), for: .normal)
 			TimerManager.stopTimer()
-		} else if mediaPlayer.playbackState == .paused {
+		} else if mediaPlayer.playbackState == .paused || mediaPlayer.playbackState == .stopped {
 			mediaPlayer.play()
 			playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
 			
-			if let item = mediaPlayer.nowPlayingItem {
-				let duration = Int(item.playbackDuration)
-				TimerManager.beginTimer(with: Int(mediaPlayer.currentPlaybackTime), maxTime: duration, label: timeLabel, bar: progress)
+			if mediaPlayer.repeatMode == .one {
+				startTimer(doesRepeat: true)
+			} else {
+				startTimer(doesRepeat: false)
 			}
 		}
 	}
 	
-	@IBAction func forwardPressed(_ sender: UIButton) {
+	@IBAction func forwardTap(_ sender: UITapGestureRecognizer) {
+		forwardButton.animateButton()
 		mediaPlayer.skipToNextItem()
 		TimerManager.stopTimer()
+	}
+	
+	@IBAction func forwardLongPress(_ sender: UILongPressGestureRecognizer) {
+		if sender.state == .ended {
+			mediaPlayer.endSeeking()
+			forwardButton.popUp()
+			checkStatus()
+			startTimer(doesRepeat: false)
+		} else if sender.state == .began {
+			TimerManager.stopTimer()
+			forwardButton.pressDown()
+		} else {
+			mediaPlayer.beginSeekingForward()
+			updateTimeLabel()
+			updateProgress()
+		}
+	}
+	
+	@IBAction func changeRepeat(_ sender: UIButton) {
+		switch mediaPlayer.repeatMode {
+		case .none:
+			mediaPlayer.repeatMode = .one
+			repeatButton.setImage(UIImage(named: "repeatone"), for: .normal)
+			
+			TimerManager.stopTimer()
+			if mediaPlayer.playbackState == .playing {
+				startTimer(doesRepeat: true)
+			}
+			
+			shuffleButton.setImage(UIImage(named: "shuffleoff"), for: .normal)
+			mediaPlayer.shuffleMode = .off
+			shuffleButton.isEnabled = false
+		case .one:
+			mediaPlayer.repeatMode = .all
+			repeatButton.setImage(UIImage(named: "repeat"), for: .normal)
+			
+			shuffleButton.isEnabled = true
+			
+			TimerManager.stopTimer()
+			if mediaPlayer.playbackState == .playing {
+				startTimer(doesRepeat: false)
+			}
+		case .all:
+			mediaPlayer.repeatMode = .none
+			repeatButton.setImage(UIImage(named: "repeatoff"), for: .normal)
+		default:
+			break
+		}
+	}
+	
+	@IBAction func changeShuffle(_ sender: UIButton) {
+		if mediaPlayer.shuffleMode == .off {
+			mediaPlayer.shuffleMode = .songs
+			shuffleButton.setImage(UIImage(named: "shuffle"), for: .normal)
+		} else if mediaPlayer.shuffleMode == .songs {
+			mediaPlayer.shuffleMode = .off
+			shuffleButton.setImage(UIImage(named: "shuffleoff"), for: .normal)
+		}
 	}
 	
 	@IBAction func selectMusicPressed(_ sender: UIButton) {

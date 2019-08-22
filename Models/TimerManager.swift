@@ -14,10 +14,12 @@ class TimerManager {
 	static var seconds = 0
 	static var time = 0
 	static var timer: Timer?
+	static var repeating = false
 
-	static func beginTimer(with currentProgress: Int, maxTime: Int, label: UILabel, bar: UIProgressView) {
+	static func beginTimer(with currentProgress: Int, maxTime: Int, label: UILabel, bar: UIProgressView, isRepeating: Bool) {
 		time = maxTime
 		seconds = currentProgress
+		repeating = isRepeating
 		
 		timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
 			print("Timer fired!")
@@ -46,8 +48,13 @@ class TimerManager {
 			bar.setProgress(progress, animated: true)
 			
 			if seconds == time {
-				timer.invalidate()
-				seconds = 0
+				if repeating {
+					seconds = 0
+					bar.setProgress(0.0, animated: false)
+				} else {
+					timer.invalidate()
+					seconds = 0
+				}
 			}
 		}
 		
