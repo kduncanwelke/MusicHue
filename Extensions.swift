@@ -33,3 +33,39 @@ extension UIView {
 		})
 	}
 }
+
+
+extension TimeInterval {
+	func stringFromTimeInterval() -> String {
+		
+		var time = NSInteger(self)
+		
+		let ms = (self.truncatingRemainder(dividingBy: 1)) * 1000
+		if ms > 0.5 {
+			time += 1
+		}
+		let seconds = time % 60
+		let minutes = (time / 60) % 60
+		let hours = (time / 3600)
+		
+		if minutes == 0 {
+			return String(format: "0:%0.2d",seconds)
+		} else if hours == 0 {
+			var result = String(format: "%0.2d:%0.2d",minutes,seconds)
+			if result.first == "0" {
+				return String(result.dropFirst())
+			} else {
+				return result
+			}
+		} else {
+			var result = String(format: "%0.2d:%0.2d:%0.2d",hours,minutes,seconds)
+			if result.first == "0" {
+				return String(result.dropFirst())
+			} else {
+				return result
+			}
+		}
+		
+	}
+		
+}
