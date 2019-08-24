@@ -54,10 +54,7 @@ class ViewController: UIViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		let animatedGradient = AnimatedGradientView(frame: view.bounds)
-		animatedGradient.animationValues = [(colors: ["#fbe865", "#65f2fb"], .right, .axial),
-											(colors: ["#65fb85", "#fbcb65"], .down, .axial),
-											(colors: ["#f665fb", "#cf65fb"], .left, .axial),
-											(colors: ["#fb65a5", "#fbb665"], .up, .axial)]
+		animatedGradient.animationValues = GradientManager.currentGradient.color
 		background.addSubview(animatedGradient)
 	}
 	
@@ -212,6 +209,11 @@ class ViewController: UIViewController {
 	}
 	
 	// MARK: IBActions
+	
+	@IBAction func changeColor(_ sender: UIButton) {
+		performSegue(withIdentifier: "changeColor", sender: Any?.self)
+	}
+	
 	
 	@IBAction func backTap(_ sender: UITapGestureRecognizer) {
 		backButton.animateButton()
