@@ -11,4 +11,8 @@ import MediaPlayer
 
 struct MusicManager {
 	static var songs: [MPMediaItem] = []
+	
+	static var selectedSong = 0
+	
+	static var playlist: Playlist?
 }

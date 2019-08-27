@@ -9,6 +9,7 @@
 import UIKit
 import AnimatedGradientView
 import MediaPlayer
+import CoreData
 
 class ViewController: UIViewController {
 	
@@ -18,6 +19,7 @@ class ViewController: UIViewController {
 	
 	@IBOutlet weak var selectMusicButton: UIButton!
 	@IBOutlet weak var viewPlaylistButton: UIButton!
+	@IBOutlet weak var colorButton: UIButton!
 	
 	@IBOutlet weak var playPauseButton: UIButton!
 	@IBOutlet weak var currentlyPlaying: UILabel!
@@ -44,8 +46,11 @@ class ViewController: UIViewController {
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(stateChanged), name: .MPMusicPlayerControllerPlaybackStateDidChange, object: mediaPlayer)
 		
+		NotificationCenter.default.addObserver(self, selector: #selector(newSong), name: NSNotification.Name(rawValue: "newSong"), object: nil)
+		
 		selectMusicButton.layer.cornerRadius = 10
 		viewPlaylistButton.layer.cornerRadius = 10
+		colorButton.layer.cornerRadius = 10
 		checkStatus()
 		
 		mediaPlayer.repeatMode = .none
@@ -151,7 +156,7 @@ class ViewController: UIViewController {
 	}
 	
 	func checkStatus() {
-		if mediaPlayer.nowPlayingItem == nil || MusicManager.songs.isEmpty {
+		if mediaPlayer.nowPlayingItem == nil {
 			currentlyPlaying.text = "No selection"
 			artist.text = "No selection"
 			albumArt.image = UIImage(named: "noimg")
@@ -161,7 +166,11 @@ class ViewController: UIViewController {
 			backButton.isEnabled = false
 			repeatButton.isEnabled = false
 			shuffleButton.isEnabled = false
+			
+			save()
+			print("now playing is nil")
 		} else {
+			loadSongs()
 			playPauseButton.isEnabled = true
 			forwardButton.isEnabled = true
 			backButton.isEnabled = true
@@ -205,6 +214,90 @@ class ViewController: UIViewController {
 		} else if mediaPlayer.playbackState == .paused || mediaPlayer.playbackState == .stopped {
 			playPauseButton.setImage(UIImage(named: "play"), for: .normal)
 			TimerManager.stopTimer()
+		}
+	}
+	
+	@objc func newSong() {
+		mediaPlayer.stop()
+		mediaPlayer.nowPlayingItem = MusicManager.songs[MusicManager.selectedSong]
+		mediaPlayer.play()
+	}
+	
+	func save() {
+		var managedContext = CoreDataManager.shared.managedObjectContext
+		
+		guard let existing = MusicManager.playlist else {
+			let savedPlaylist = Playlist(context: managedContext)
+			
+			var idList: [String] = []
+			
+			for song in MusicManager.songs {
+				idList.append("\(song.persistentID)")
+			}
+			
+			savedPlaylist.songs = idList
+			
+			do {
+				try managedContext.save()
+				print("saved")
+				//NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
+			} catch {
+				// this should never be displayed but is here to cover the possibility
+				//showAlert(title: "Save failed", message: "Notice: Data has not successfully been saved.")
+				print("fail")
+			}
+			
+			return
+		}
+		
+		var idList: [String] = []
+		
+		for song in MusicManager.songs {
+			idList.append("\(song.persistentID)")
+		}
+		
+		existing.songs = idList
+		
+		do {
+			try managedContext.save()
+			print("saved")
+			//NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
+		} catch {
+			// this should never be displayed but is here to cover the possibility
+			//showAlert(title: "Save failed", message: "Notice: Data has not successfully been saved.")
+			print("fail")
+		}
+	}
+	
+	func loadSongs() {
+		var managedContext = CoreDataManager.shared.managedObjectContext
+		var fetchRequest = NSFetchRequest<Playlist>(entityName: "Playlist")
+		
+		do {
+			var list = try managedContext.fetch(fetchRequest)
+			
+			MusicManager.playlist = list.first
+			
+			if let playlist = MusicManager.playlist?.songs {
+				var retrievedSongs: [MPMediaItem] = []
+				
+				for song in playlist {
+					print(song)
+					let predicate = MPMediaPropertyPredicate(value: song, forProperty: MPMediaItemPropertyPersistentID)
+					let songQuery = MPMediaQuery.init(filterPredicates: [predicate])
+					
+					if let items = songQuery.items, items.count > 0 {
+						retrievedSongs.append(items[0])
+					}
+				}
+				
+				MusicManager.songs = retrievedSongs
+			}
+			
+			print("music loaded")
+		} catch let error as NSError {
+			//showAlert(title: "Could not retrieve data", message: "\(error.userInfo)")
+			print("fail")
 		}
 	}
 	
@@ -346,7 +439,10 @@ extension ViewController: MPMediaPickerControllerDelegate {
 		
 		for item in mediaItemCollection.items {
 			MusicManager.songs.append(item)
+			print(item.title)
 		}
+		
+		save()
 		
 		mediaPicker.dismiss(animated: true, completion: nil)
 		

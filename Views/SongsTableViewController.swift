@@ -73,6 +73,10 @@ class SongsTableViewController: UITableViewController {
         return cell
     }
 	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		MusicManager.selectedSong = indexPath.row
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "newSong"), object: nil)
+	}
 
     /*
     // Override to support conditional editing of the table view.

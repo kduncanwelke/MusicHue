@@ -80,6 +80,7 @@ class TimerManager {
 			if seconds == time {
 				if repeating {
 					seconds = 0
+					label.text = "0:00"
 					bar.setProgress(0.0, animated: false)
 				} else {
 					timer.invalidate()
