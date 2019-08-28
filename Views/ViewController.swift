@@ -55,6 +55,8 @@ class ViewController: UIViewController {
 		
 		mediaPlayer.repeatMode = .none
 		mediaPlayer.shuffleMode = .off
+		
+		checkForNowPlaying()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -155,6 +157,16 @@ class ViewController: UIViewController {
 		}
 	}
 	
+	func checkForNowPlaying() {
+		if mediaPlayer.nowPlayingItem == nil {
+			save()
+			print("now playing nil")
+		} else {
+			loadSongs()
+			print("loaded")
+		}
+	}
+	
 	func checkStatus() {
 		if mediaPlayer.nowPlayingItem == nil {
 			currentlyPlaying.text = "No selection"
@@ -166,11 +178,7 @@ class ViewController: UIViewController {
 			backButton.isEnabled = false
 			repeatButton.isEnabled = false
 			shuffleButton.isEnabled = false
-			
-			save()
-			print("now playing is nil")
 		} else {
-			loadSongs()
 			playPauseButton.isEnabled = true
 			forwardButton.isEnabled = true
 			backButton.isEnabled = true
@@ -226,16 +234,16 @@ class ViewController: UIViewController {
 	func save() {
 		var managedContext = CoreDataManager.shared.managedObjectContext
 		
-		guard let existing = MusicManager.playlist else {
-			let savedPlaylist = Playlist(context: managedContext)
-			
+		if let existing = MusicManager.playlist {
 			var idList: [String] = []
 			
 			for song in MusicManager.songs {
 				idList.append("\(song.persistentID)")
 			}
 			
-			savedPlaylist.songs = idList
+			print("old save")
+			print(idList)
+			existing.songs = idList
 			
 			do {
 				try managedContext.save()
@@ -246,27 +254,31 @@ class ViewController: UIViewController {
 				//showAlert(title: "Save failed", message: "Notice: Data has not successfully been saved.")
 				print("fail")
 			}
+		} else {
+			let savedPlaylist = Playlist(context: managedContext)
 			
-			return
+			var idList: [String] = []
+			
+			for song in MusicManager.songs {
+				idList.append("\(song.persistentID)")
+			}
+			
+			print("new save")
+			print(idList)
+			savedPlaylist.songs = idList
+			MusicManager.playlist = savedPlaylist
+			
+			do {
+				try managedContext.save()
+				print("saved")
+				//NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
+			} catch {
+				// this should never be displayed but is here to cover the possibility
+				//showAlert(title: "Save failed", message: "Notice: Data has not successfully been saved.")
+				print("fail")
+			}
 		}
 		
-		var idList: [String] = []
-		
-		for song in MusicManager.songs {
-			idList.append("\(song.persistentID)")
-		}
-		
-		existing.songs = idList
-		
-		do {
-			try managedContext.save()
-			print("saved")
-			//NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
-		} catch {
-			// this should never be displayed but is here to cover the possibility
-			//showAlert(title: "Save failed", message: "Notice: Data has not successfully been saved.")
-			print("fail")
-		}
 	}
 	
 	func loadSongs() {
@@ -440,13 +452,14 @@ extension ViewController: MPMediaPickerControllerDelegate {
 		for item in mediaItemCollection.items {
 			MusicManager.songs.append(item)
 			print(item.title)
+			print(item.persistentID)
 		}
 		
 		save()
 		
 		mediaPicker.dismiss(animated: true, completion: nil)
 		
-		checkStatus()
+		//checkStatus()
 	}
 	
 	func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
