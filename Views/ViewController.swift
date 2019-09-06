@@ -10,6 +10,7 @@ import UIKit
 import AnimatedGradientView
 import MediaPlayer
 import CoreData
+import Network
 
 class ViewController: UIViewController {
 	
@@ -36,6 +37,9 @@ class ViewController: UIViewController {
 	// MARK: Variables
 	
 	let mediaPlayer = MPMusicPlayerController.systemMusicPlayer
+	let monitor = NWPathMonitor()
+	var connection = true
+	var cloudItem = false
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -57,6 +61,30 @@ class ViewController: UIViewController {
 		mediaPlayer.shuffleMode = .off
 		
 		checkForNowPlaying()
+		
+		monitor.pathUpdateHandler = { [unowned self] path in
+			if path.status == .satisfied {
+				print("connection successful")
+				self.connection = true
+			} else {
+				print("no connection")
+				if let isAcloudItem = self.mediaPlayer.nowPlayingItem?.isCloudItem {
+					if isAcloudItem {
+						self.connection = false
+						self.cloudItem = true
+						
+						DispatchQueue.main.async {
+							self.checkStatus()
+						}
+					} else {
+						self.cloudItem = false
+					}
+				}
+			}
+		}
+		
+		let queue = DispatchQueue(label: "Monitor")
+		monitor.start(queue: queue)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -88,7 +116,11 @@ class ViewController: UIViewController {
 	func setUI() {
 		currentlyPlaying.text = mediaPlayer.nowPlayingItem?.title
 		artist.text = mediaPlayer.nowPlayingItem?.albumArtist
-		albumArt.image = mediaPlayer.nowPlayingItem?.artwork?.image(at: albumArt.bounds.size)
+		if let albumVisual = mediaPlayer.nowPlayingItem?.artwork?.image(at: albumArt.bounds.size) {
+			albumArt.image = albumVisual
+		} else {
+			albumArt.image = UIImage(named: "noimage")
+		}
 		
 		updateTimeLabel()
 		updateProgress()
@@ -153,7 +185,6 @@ class ViewController: UIViewController {
 	func startTimer(doesRepeat: Bool) {
 		if let item = mediaPlayer.nowPlayingItem {
 			TimerManager.beginTimer(with: mediaPlayer.currentPlaybackTime, maxTime: item.playbackDuration, label: timeLabel, bar: progress, isRepeating: doesRepeat)
-			print(mediaPlayer.currentPlaybackTime)
 		}
 	}
 	
@@ -171,7 +202,7 @@ class ViewController: UIViewController {
 		if mediaPlayer.nowPlayingItem == nil {
 			currentlyPlaying.text = "No selection"
 			artist.text = "No selection"
-			albumArt.image = UIImage(named: "noimg")
+			albumArt.image = UIImage(named: "noimage")
 			
 			playPauseButton.isEnabled = false
 			forwardButton.isEnabled = false
@@ -186,6 +217,13 @@ class ViewController: UIViewController {
 			shuffleButton.isEnabled = true
 			
 			setUI()
+			
+			if cloudItem && connection == false {
+				mediaPlayer.pause()
+				showAlert(title: "No network connection", message: "This song is streaming from the cloud - you may experience problems with playback until a data connection is restored.")
+			} else {
+				// nothing
+			}
 			
 			if mediaPlayer.playbackState == .playing {
 				playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
@@ -202,6 +240,8 @@ class ViewController: UIViewController {
 		progress.setProgress(0.0, animated: false)
 		
 		TimerManager.stopTimer()
+		
+		playPauseButton.isEnabled = true
 		
 		if mediaPlayer.playbackState == .playing {
 			startTimer(doesRepeat: false)
@@ -251,7 +291,7 @@ class ViewController: UIViewController {
 				//NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
 			} catch {
 				// this should never be displayed but is here to cover the possibility
-				//showAlert(title: "Save failed", message: "Notice: Data has not successfully been saved.")
+				showAlert(title: "Save failed", message: "Notice: Data has not successfully been saved.")
 				print("fail")
 			}
 		} else {
@@ -274,7 +314,7 @@ class ViewController: UIViewController {
 				//NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
 			} catch {
 				// this should never be displayed but is here to cover the possibility
-				//showAlert(title: "Save failed", message: "Notice: Data has not successfully been saved.")
+				showAlert(title: "Save failed", message: "Notice: Data has not successfully been saved.")
 				print("fail")
 			}
 		}
@@ -294,7 +334,6 @@ class ViewController: UIViewController {
 				var retrievedSongs: [MPMediaItem] = []
 				
 				for song in playlist {
-					print(song)
 					let predicate = MPMediaPropertyPredicate(value: song, forProperty: MPMediaItemPropertyPersistentID)
 					let songQuery = MPMediaQuery.init(filterPredicates: [predicate])
 					
@@ -308,7 +347,7 @@ class ViewController: UIViewController {
 			
 			print("music loaded")
 		} catch let error as NSError {
-			//showAlert(title: "Could not retrieve data", message: "\(error.userInfo)")
+			showAlert(title: "Could not retrieve data", message: "\(error.userInfo)")
 			print("fail")
 		}
 	}
@@ -347,6 +386,10 @@ class ViewController: UIViewController {
 	
 	@IBAction func playPausePressed(_ sender: UIButton) {
 		playPauseButton.animateButton()
+		
+		if cloudItem && connection == false {
+			return
+		}
 		
 		if mediaPlayer.playbackState == .playing {
 			mediaPlayer.pause()
@@ -443,23 +486,25 @@ class ViewController: UIViewController {
 // music picker extension
 extension ViewController: MPMediaPickerControllerDelegate {
 	func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
-		mediaPlayer.setQueue(with: mediaItemCollection)
 		
 		if MusicManager.songs.isEmpty {
+			mediaPlayer.setQueue(with: mediaItemCollection)
 			mediaPlayer.play()
+		} else {
+			let queue = MPMusicPlayerMediaItemQueueDescriptor(itemCollection: mediaItemCollection)
+			mediaPlayer.append(queue)
 		}
 		
 		for item in mediaItemCollection.items {
 			MusicManager.songs.append(item)
 			print(item.title)
-			print(item.persistentID)
 		}
 		
 		save()
 		
 		mediaPicker.dismiss(animated: true, completion: nil)
 		
-		//checkStatus()
+		checkStatus()
 	}
 	
 	func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {

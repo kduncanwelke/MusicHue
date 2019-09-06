@@ -42,7 +42,7 @@ class SongsTableViewController: UITableViewController {
 		if let art = song.artwork?.image(at: cell.albumArt.bounds.size) {
 			cell.albumArt.image = art
 		} else {
-			cell.albumArt.image = UIImage(named: "noimg")
+			cell.albumArt.image = UIImage(named: "noimage")
 		}
 		
 		cell.title.text = song.title
