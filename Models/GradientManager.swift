@@ -87,7 +87,7 @@ struct GradientManager {
 			 (colors: ["#e2a6e7", "#e7d4a6"], .down, .axial),
 			 (colors: ["#e7e3a6", "#cbe7a6"], .right, .axial)])
 		,
-		Color(name: ColorName.space, description: "Deep outer space",  color:
+		Color(name: ColorName.space, description: "Deep outer limits",  color:
 			[(colors: ["#262437", "#202b46"], .upRight, .axial),
 			 (colors: ["#1b165f", "#453664"], .down, .axial),
 			 (colors: ["#291640", "#1b2630"], .left, .axial),

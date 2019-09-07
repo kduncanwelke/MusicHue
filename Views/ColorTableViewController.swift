@@ -43,8 +43,13 @@ class ColorTableViewController: UITableViewController {
 		animatedGradient.animationValues = color.color
 		cell.colorPreview.addSubview(animatedGradient)
 		
+		if color.name == GradientManager.currentGradient.name {
+			tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+		}
+		
         return cell
     }
+	
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		GradientManager.currentGradient = GradientManager.colorList[indexPath.row]

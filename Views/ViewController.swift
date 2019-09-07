@@ -98,6 +98,15 @@ class ViewController: UIViewController {
 		checkForNowPlaying()
 	}
 	
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		switch textColor {
+		case .white:
+			return .lightContent
+		case .black:
+			return .default
+		}
+	}
+	
 	override func becomeFirstResponder() -> Bool {
 		return true
 	}
@@ -113,6 +122,15 @@ class ViewController: UIViewController {
 				mediaPlayer.shuffleMode = .off
 				shuffleButton.setImage(UIImage(named: "shuffleoff"), for: .normal)
 			}
+		}
+	}
+	
+	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+		
+		DispatchQueue.main.async {
+			let animatedGradient = AnimatedGradientView(frame: self.view.bounds)
+			animatedGradient.animationValues = GradientManager.currentGradient.color
+			self.background.addSubview(animatedGradient)
 		}
 	}
 	
@@ -556,8 +574,13 @@ class ViewController: UIViewController {
 			textColor = .white
 		}
 		
+		setNeedsStatusBarAppearanceUpdate()
+		
 		switch textColor {
 		case .white:
+			currentlyPlaying.textColor = UIColor.white
+			artist.textColor = UIColor.white
+			
 			forwardButton.setImage(UIImage(named: "forward"), for: .normal)
 			backButton.setImage(UIImage(named: "backward"), for: .normal)
 			addButton.setImage(UIImage(named: "add"), for: .normal)
@@ -592,6 +615,9 @@ class ViewController: UIViewController {
 					break
 			}
 		case .black:
+			currentlyPlaying.textColor = UIColor.black
+			artist.textColor = UIColor.black
+			
 			forwardButton.setImage(UIImage(named: "forwardblack"), for: .normal)
 			backButton.setImage(UIImage(named: "backwardblack"), for: .normal)
 			addButton.setImage(UIImage(named: "addblack"), for: .normal)
