@@ -21,6 +21,10 @@ class ViewController: UIViewController {
 	@IBOutlet weak var selectMusicButton: UIButton!
 	@IBOutlet weak var viewPlaylistButton: UIButton!
 	@IBOutlet weak var colorButton: UIButton!
+	@IBOutlet weak var textColorButton: UIButton!
+	
+	@IBOutlet weak var addButton: UIButton!
+	@IBOutlet weak var playlistButton: UIButton!
 	
 	@IBOutlet weak var playPauseButton: UIButton!
 	@IBOutlet weak var currentlyPlaying: UILabel!
@@ -40,6 +44,7 @@ class ViewController: UIViewController {
 	let monitor = NWPathMonitor()
 	var connection = true
 	var cloudItem = false
+	var textColor = TextColor.white
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -59,8 +64,6 @@ class ViewController: UIViewController {
 		
 		mediaPlayer.repeatMode = .none
 		mediaPlayer.shuffleMode = .off
-		
-		checkForNowPlaying()
 		
 		monitor.pathUpdateHandler = { [unowned self] path in
 			if path.status == .satisfied {
@@ -91,6 +94,8 @@ class ViewController: UIViewController {
 		let animatedGradient = AnimatedGradientView(frame: view.bounds)
 		animatedGradient.animationValues = GradientManager.currentGradient.color
 		background.addSubview(animatedGradient)
+		
+		checkForNowPlaying()
 	}
 	
 	override func becomeFirstResponder() -> Bool {
@@ -190,6 +195,7 @@ class ViewController: UIViewController {
 	
 	func checkForNowPlaying() {
 		if mediaPlayer.nowPlayingItem == nil {
+			MusicManager.songs.removeAll()
 			save()
 			print("now playing nil")
 		} else {
@@ -225,11 +231,23 @@ class ViewController: UIViewController {
 				// nothing
 			}
 			
-			if mediaPlayer.playbackState == .playing {
-				playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+			/*if mediaPlayer.playbackState == .playing {
+				switch textColor {
+					case .white:
+						playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+					case .black:
+						playPauseButton.setImage(UIImage(named: "pauseblack"), for: .normal)
+				}
+				
 			}  else if mediaPlayer.playbackState == .paused || mediaPlayer.playbackState == .stopped {
-				playPauseButton.setImage(UIImage(named: "play"), for: .normal)
-			}
+				switch textColor {
+				case .white:
+					playPauseButton.setImage(UIImage(named: "play"), for: .normal)
+				case .black:
+					playPauseButton.setImage(UIImage(named: "playblack"), for: .normal)
+				}
+				
+			}*/
 		}
 	}
 	
@@ -250,7 +268,12 @@ class ViewController: UIViewController {
 	
 	@objc func stateChanged() {
 		if mediaPlayer.playbackState == .playing {
-			playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+			switch textColor {
+				case .white:
+					playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+				case .black:
+					playPauseButton.setImage(UIImage(named: "pauseblack"), for: .normal)
+			}
 			
 			TimerManager.stopTimer()
 			
@@ -260,7 +283,13 @@ class ViewController: UIViewController {
 				startTimer(doesRepeat: false)
 			}
 		} else if mediaPlayer.playbackState == .paused || mediaPlayer.playbackState == .stopped {
-			playPauseButton.setImage(UIImage(named: "play"), for: .normal)
+			switch textColor {
+			case .white:
+				playPauseButton.setImage(UIImage(named: "play"), for: .normal)
+			case .black:
+				playPauseButton.setImage(UIImage(named: "playblack"), for: .normal)
+			}
+			
 			TimerManager.stopTimer()
 		}
 	}
@@ -279,10 +308,11 @@ class ViewController: UIViewController {
 			
 			for song in MusicManager.songs {
 				idList.append("\(song.persistentID)")
+				print(song.title)
 			}
 			
 			print("old save")
-			print(idList)
+			
 			existing.songs = idList
 			
 			do {
@@ -301,10 +331,11 @@ class ViewController: UIViewController {
 			
 			for song in MusicManager.songs {
 				idList.append("\(song.persistentID)")
+				print(song.title)
 			}
 			
 			print("new save")
-			print(idList)
+		
 			savedPlaylist.songs = idList
 			MusicManager.playlist = savedPlaylist
 			
@@ -392,8 +423,24 @@ class ViewController: UIViewController {
 		}
 		
 		if mediaPlayer.playbackState == .playing {
+			//switch textColor {
+			//case .white:
+				//print("white")
+				//playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+			//case .black:
+				//print("black")
+				playPauseButton.setImage(UIImage(named: "pauseblack"), for: .normal)
+			//}
+			
 			mediaPlayer.pause()
-		} else if mediaPlayer.playbackState == .paused || mediaPlayer.playbackState == .stopped {
+		} else {
+			//switch textColor {
+			//case .white:
+				//playPauseButton.setImage(UIImage(named: "play"), for: .normal)
+			//case .black:
+				playPauseButton.setImage(UIImage(named: "playblack"), for: .normal)
+			//}
+			
 			mediaPlayer.play()
 		}
 	}
@@ -429,7 +476,13 @@ class ViewController: UIViewController {
 		switch mediaPlayer.repeatMode {
 		case .none:
 			mediaPlayer.repeatMode = .one
-			repeatButton.setImage(UIImage(named: "repeatone"), for: .normal)
+			
+			switch textColor {
+			case .white:
+				repeatButton.setImage(UIImage(named: "repeatone"), for: .normal)
+			case .black:
+				repeatButton.setImage(UIImage(named: "repeatoneblack"), for: .normal)
+			}
 			
 			TimerManager.stopTimer()
 			if mediaPlayer.playbackState == .playing {
@@ -441,7 +494,13 @@ class ViewController: UIViewController {
 			shuffleButton.isEnabled = false
 		case .one:
 			mediaPlayer.repeatMode = .all
-			repeatButton.setImage(UIImage(named: "repeat"), for: .normal)
+			
+			switch textColor {
+			case .white:
+				repeatButton.setImage(UIImage(named: "repeat"), for: .normal)
+			case .black:
+				repeatButton.setImage(UIImage(named: "repeatblack"), for: .normal)
+			}
 			
 			shuffleButton.isEnabled = true
 			
@@ -462,7 +521,14 @@ class ViewController: UIViewController {
 		
 		if mediaPlayer.shuffleMode == .off {
 			mediaPlayer.shuffleMode = .songs
-			shuffleButton.setImage(UIImage(named: "shuffle"), for: .normal)
+			
+			switch textColor {
+				case .white:
+					shuffleButton.setImage(UIImage(named: "shuffle"), for: .normal)
+				case .black:
+					shuffleButton.setImage(UIImage(named: "shuffleblack"), for: .normal)
+			}
+			
 		} else if mediaPlayer.shuffleMode == .songs {
 			mediaPlayer.shuffleMode = .off
 			shuffleButton.setImage(UIImage(named: "shuffleoff"), for: .normal)
@@ -480,6 +546,89 @@ class ViewController: UIViewController {
 		myMediaPickerVC.delegate = self
 		self.present(myMediaPickerVC, animated: true, completion: nil)
 	}
+	
+	@IBAction func changeText(_ sender: UIButton) {
+		textColorButton.animateButton()
+		
+		if textColor == .white {
+			textColor = .black
+		} else {
+			textColor = .white
+		}
+		
+		switch textColor {
+		case .white:
+			forwardButton.setImage(UIImage(named: "forward"), for: .normal)
+			backButton.setImage(UIImage(named: "backward"), for: .normal)
+			addButton.setImage(UIImage(named: "add"), for: .normal)
+			playlistButton.setImage(UIImage(named: "playlist"), for: .normal)
+			colorButton.setImage(UIImage(named: "color"), for: .normal)
+			textColorButton.setImage(UIImage(named: "textwhite"), for: .normal)
+			
+			switch mediaPlayer.playbackState {
+				case .playing:
+					playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
+				default:
+					playPauseButton.setImage(UIImage(named: "play"), for: .normal)
+			}
+			
+			switch mediaPlayer.shuffleMode {
+				case .off:
+					shuffleButton.setImage(UIImage(named: "shuffleoff"), for: .normal)
+				case .songs:
+					shuffleButton.setImage(UIImage(named: "shuffle"), for: .normal)
+				default:
+					break
+			}
+			
+			switch mediaPlayer.repeatMode {
+				case .one:
+					repeatButton.setImage(UIImage(named: "repeatone"), for: .normal)
+				case .all:
+					repeatButton.setImage(UIImage(named: "repeat"), for: .normal)
+				case .none:
+					repeatButton.setImage(UIImage(named: "repeatoff"), for: .normal)
+				default:
+					break
+			}
+		case .black:
+			forwardButton.setImage(UIImage(named: "forwardblack"), for: .normal)
+			backButton.setImage(UIImage(named: "backwardblack"), for: .normal)
+			addButton.setImage(UIImage(named: "addblack"), for: .normal)
+			playlistButton.setImage(UIImage(named: "playlistblack"), for: .normal)
+			colorButton.setImage(UIImage(named: "colorblack"), for: .normal)
+			textColorButton.setImage(UIImage(named: "textblack"), for: .normal)
+			
+			switch mediaPlayer.playbackState {
+			case .playing:
+				playPauseButton.setImage(UIImage(named: "pauseblack"), for: .normal)
+			default:
+				playPauseButton.setImage(UIImage(named: "playblack"), for: .normal)
+			}
+			
+			switch mediaPlayer.shuffleMode {
+			case .off:
+				shuffleButton.setImage(UIImage(named: "shuffleoff"), for: .normal)
+			case .songs:
+				shuffleButton.setImage(UIImage(named: "shuffleblack"), for: .normal)
+			default:
+				break
+			}
+			
+			
+			switch mediaPlayer.repeatMode {
+				case .one:
+					repeatButton.setImage(UIImage(named: "repeatoneblack"), for: .normal)
+				case .all:
+					repeatButton.setImage(UIImage(named: "repeatblack"), for: .normal)
+				case .none:
+					repeatButton.setImage(UIImage(named: "repeatoff"), for: .normal)
+				default:
+					break
+			}
+		}
+	}
+	
 }
 
 
@@ -498,6 +647,7 @@ extension ViewController: MPMediaPickerControllerDelegate {
 		for item in mediaItemCollection.items {
 			MusicManager.songs.append(item)
 			print(item.title)
+			print(item.persistentID)
 		}
 		
 		save()

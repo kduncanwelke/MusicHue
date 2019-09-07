@@ -68,7 +68,6 @@ class SongsTableViewController: UITableViewController {
 		}()
 		
 		cell.time.text = song.playbackDuration.stringFromTimeInterval()
-		print(song.playbackDuration)
 
         return cell
     }
