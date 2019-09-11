@@ -404,6 +404,7 @@ class ViewController: UIViewController {
 	// MARK: IBActions
 	
 	@IBAction func changeColor(_ sender: UIButton) {
+		colorButton.animateButton()
 		performSegue(withIdentifier: "changeColor", sender: Any?.self)
 	}
 	

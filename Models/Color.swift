@@ -13,6 +13,7 @@ struct Color {
 	let name: ColorName
 	let description: String
 	let color: [AnimatedGradientView.AnimationValue]
+	var purchased: Bool
 }
 
 enum ColorName: String {
@@ -26,14 +27,14 @@ enum ColorName: String {
 	case sunset = "Sunset"
 	case sunrise = "Sunrise"
 	case fire = "Fire"
-	case desert = "Desert"
+	case mountain = "Mountain"
 	case pastel = "Pastel"
 	case space = "Space"
 	case sky = "Sky"
 	case spring = "Spring"
-	case metal = "Metal"
-	case coffee = "Coffee"
+	case summer = "Summer"
+	case fall = "Fall"
+	case winter = "Winter"
 	case unicorn = "Unicorn"
 	case complements = "Complements"
-	case pink = "Pink"
 }

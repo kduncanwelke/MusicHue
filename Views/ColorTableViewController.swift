@@ -8,51 +8,130 @@
 
 import UIKit
 import AnimatedGradientView
+import StoreKit
 
 class ColorTableViewController: UITableViewController {
+	
+	// MARK: Variables
+	
+	var request: SKProductsRequest!
+	var products = [SKProduct]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		
+		var isAuthorizedForPayments: Bool {
+			return SKPaymentQueue.canMakePayments()
+		}
+		
+		if isAuthorizedForPayments {
+			validate(productIdentifiers: [Products.unicorn])
+		}
     }
+	
+	// MARK: Custom functions
+	
+	func validate(productIdentifiers: [String]) {
+		let productIdentifiers = Set(productIdentifiers)
+		
+		request = SKProductsRequest(productIdentifiers: productIdentifiers)
+		request.delegate = self
+		request.start()
+	}
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return GradientManager.colorList.count
+		if section == 0 {
+        	return GradientManager.colorList.count
+		} else {
+			return GradientManager.premiumList.count
+		}
     }
 
 	
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "colorCell", for: indexPath) as! ColorTableViewCell
 
-		var color: Color
+		cell.cellDelegate = self
 		
-		color = GradientManager.colorList[indexPath.row]
+		if indexPath.section == 0 {
+			var color: Color
+			
+			color = GradientManager.colorList[indexPath.row]
+			
+			// Configure the cell...
+			cell.colorName.text = color.name.rawValue
+			cell.descriptionLabel.text = color.description
+			
+			let animatedGradient = AnimatedGradientView(frame: cell.colorPreview.bounds)
+			animatedGradient.animationValues = color.color
+			cell.colorPreview.addSubview(animatedGradient)
+			
+			if color.name == GradientManager.currentGradient.name {
+				tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+			}
+			
+			cell.purchaseButton.isHidden = true
+			
+			return cell
+			
+		} else {
+			var product: SKProduct
+			
+			var color: Color
+			
+			color = GradientManager.premiumList[indexPath.row]
+			
+			// Configure the cell...
+			cell.colorName.text = color.name.rawValue
+			cell.descriptionLabel.text = color.description
+			
+			let animatedGradient = AnimatedGradientView(frame: cell.colorPreview.bounds)
+			animatedGradient.animationValues = color.color
+			cell.colorPreview.addSubview(animatedGradient)
 		
-        // Configure the cell...
-		cell.colorName.text = color.name.rawValue
-		cell.descriptionLabel.text = color.description
-		
-		let animatedGradient = AnimatedGradientView(frame: cell.colorPreview.bounds)
-		animatedGradient.animationValues = color.color
-		cell.colorPreview.addSubview(animatedGradient)
-		
-		if color.name == GradientManager.currentGradient.name {
-			tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+			cell.purchaseButton.isHidden = false
+			
+			if !products.isEmpty {
+				product = products[indexPath.row]
+				
+				// prevent selection if not purchased
+				if color.purchased {
+					cell.purchaseButton.setTitle("Purchased", for: .normal)
+				} else {
+					cell.purchaseButton.setTitle(product.regularPrice, for: .normal)
+				}
+			} else {
+				if color.purchased {
+					cell.purchaseButton.setTitle("Purchased", for: .normal)
+				} else {
+					cell.purchaseButton.setTitle("Not available", for: .normal)
+				}
+				print(color.purchased)
+			}
+			
+			if color.name == GradientManager.currentGradient.name {
+				tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+			}
+			
+			return cell
 		}
-		
-        return cell
     }
 	
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		GradientManager.currentGradient = GradientManager.colorList[indexPath.row]
+		if indexPath.section == 0 {
+			GradientManager.currentGradient = GradientManager.colorList[indexPath.row]
+		} else {
+			if GradientManager.premiumList[indexPath.row].purchased {
+				GradientManager.currentGradient = GradientManager.premiumList[indexPath.row]
+			}
+		}
 	}
 
 
@@ -68,7 +147,48 @@ class ColorTableViewController: UITableViewController {
 	
 	// MARK: IBActions
 	
+	@IBAction func restorePressed(_ sender: UIBarButtonItem) {
+		StoreObserver.iapObserver.restore()
+	}
+	
+	
 	@IBAction func donePressed(_ sender: UIBarButtonItem) {
 		self.dismiss(animated: true, completion: nil)
+	}
+}
+
+
+extension ColorTableViewController: SKProductsRequestDelegate {
+	
+	func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+		if !response.products.isEmpty {
+			products = response.products
+			for product in products {
+				print(product.localizedTitle)
+				print(product.price)
+				print(product.priceLocale)
+			}
+		}
+		
+		for invalidIdentifier in response.invalidProductIdentifiers {
+			// handle invalid case
+		}
+	}
+}
+
+
+extension ColorTableViewController: CellButtonTapDelegate {
+	func didTapButton(sender: ColorTableViewCell) {
+		print("delegate called")
+		let path = self.tableView.indexPath(for: sender)
+		
+		if let selected = path {
+			if GradientManager.premiumList[selected.row].purchased {
+				return
+			} else {
+				StoreObserver.iapObserver.buy(products[selected.row])
+				GradientManager.gradientPurchase = GradientManager.premiumList[selected.row]
+			}
+		}
 	}
 }

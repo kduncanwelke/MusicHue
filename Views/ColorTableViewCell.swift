@@ -15,7 +15,10 @@ class ColorTableViewCell: UITableViewCell {
 	@IBOutlet weak var colorPreview: UIView!
 	@IBOutlet weak var colorName: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
+	@IBOutlet weak var purchaseButton: UIButton!
 	
+	weak var cellDelegate: CellButtonTapDelegate?
+
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,4 +34,7 @@ class ColorTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+	@IBAction func purchaseTapped(_ sender: UIButton) {
+		self.cellDelegate?.didTapButton(sender: self)
+	}
 }
