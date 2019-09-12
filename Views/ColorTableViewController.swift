@@ -16,9 +16,13 @@ class ColorTableViewController: UITableViewController {
 	
 	var request: SKProductsRequest!
 	var products = [SKProduct]()
+	var hasLoaded = false
+	var purchaseCell: ColorTableViewCell?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: "reload"), object: nil)
 		
 		var isAuthorizedForPayments: Bool {
 			return SKPaymentQueue.canMakePayments()
@@ -30,6 +34,11 @@ class ColorTableViewController: UITableViewController {
     }
 	
 	// MARK: Custom functions
+	
+	@objc func reload() {
+		guard let cell = purchaseCell else { return }
+		cell.purchaseButton.setTitle("Purchased", for: .normal)
+	}
 	
 	func validate(productIdentifiers: [String]) {
 		let productIdentifiers = Set(productIdentifiers)
@@ -94,7 +103,7 @@ class ColorTableViewController: UITableViewController {
 			let animatedGradient = AnimatedGradientView(frame: cell.colorPreview.bounds)
 			animatedGradient.animationValues = color.color
 			cell.colorPreview.addSubview(animatedGradient)
-		
+			
 			cell.purchaseButton.isHidden = false
 			
 			if !products.isEmpty {
@@ -110,9 +119,8 @@ class ColorTableViewController: UITableViewController {
 				if color.purchased {
 					cell.purchaseButton.setTitle("Purchased", for: .normal)
 				} else {
-					cell.purchaseButton.setTitle("Not available", for: .normal)
+					cell.purchaseButton.setTitle("Unavailable", for: .normal)
 				}
-				print(color.purchased)
 			}
 			
 			if color.name == GradientManager.currentGradient.name {
@@ -148,7 +156,11 @@ class ColorTableViewController: UITableViewController {
 	// MARK: IBActions
 	
 	@IBAction func restorePressed(_ sender: UIBarButtonItem) {
-		StoreObserver.iapObserver.restore()
+		if NetworkMonitor.connection {
+			StoreObserver.iapObserver.restore()
+		} else {
+			showAlert(title: "Purchases unavailable", message: "Purchases cannot be restored without a working network connection")
+		}
 	}
 	
 	
@@ -186,8 +198,19 @@ extension ColorTableViewController: CellButtonTapDelegate {
 			if GradientManager.premiumList[selected.row].purchased {
 				return
 			} else {
-				StoreObserver.iapObserver.buy(products[selected.row])
-				GradientManager.gradientPurchase = GradientManager.premiumList[selected.row]
+				if NetworkMonitor.connection {
+					
+					var isAuthorizedForPayments = SKPaymentQueue.canMakePayments()
+					
+					if isAuthorizedForPayments {
+						StoreObserver.iapObserver.buy(products[selected.row])
+						purchaseCell = tableView.cellForRow(at: selected) as! ColorTableViewCell
+					} else {
+						showAlert(title: "Payments not authorized", message: "This device is not permitted to process payments")
+					}
+				} else {
+					showAlert(title: "Purchases unavailable", message: "Purchases cannot be processed without a network connection - please try again")
+				}
 			}
 		}
 	}

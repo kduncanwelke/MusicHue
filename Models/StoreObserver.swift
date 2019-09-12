@@ -12,8 +12,8 @@ import StoreKit
 class StoreObserver: NSObject, SKPaymentTransactionObserver {
 	
 	static let iapObserver = StoreObserver()
-	var restored = [SKPaymentTransaction]()
-	var purchased = [SKPaymentTransaction]()
+	var restored: [String] = []
+	var purchased: [String] = []
 	
 	override init() {
 		super.init()
@@ -29,8 +29,8 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 				print("deferred")
 			// The purchase was successful.
 			case .purchased:
-				GradientManager.gradientPurchase.purchased = true
-				purchased.append(transaction)
+				retrievePurchase(id: transaction.payment.productIdentifier)
+				NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
 				queue.finishTransaction(transaction)
 				print("purchase succeeded")
 			// The transaction failed.
@@ -39,6 +39,8 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 				print("failed")
 			// There are restored products.
 			case .restored:
+				retrievePurchase(id: transaction.payment.productIdentifier)
+				NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
 				queue.finishTransaction(transaction)
 				print("restored")
 			default:
@@ -53,10 +55,16 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 	}
 	
 	func restore() {
-		if !restored.isEmpty {
-			restored.removeAll()
-		}
-		
 		SKPaymentQueue.default().restoreCompletedTransactions()
+	}
+	
+	func retrievePurchase(id: String) {
+		for index in 0...(GradientManager.premiumList.count - 1) {
+			let name = id.dropFirst(9)
+			
+			if GradientManager.premiumList[index].name.rawValue == name {
+				GradientManager.premiumList[index].purchased = true
+			}
+		}
 	}
 }

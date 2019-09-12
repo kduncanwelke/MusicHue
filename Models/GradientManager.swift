@@ -12,9 +12,7 @@ import AnimatedGradientView
 struct GradientManager {
 	
 	static var currentGradient = colorList[0]
-	
-	static var gradientPurchase = premiumList[0]
-	
+
 	static let colorList = [
 	
 		Color(name: ColorName.automatic, description: "The classic theme", color:
@@ -131,7 +129,7 @@ struct GradientManager {
 			 (colors: ["#0bf300", "#f30000"], .up, .axial)], purchased: true)
 	]
 	
-	static let premiumList = [
+	static var premiumList = [
 		Color(name: ColorName.unicorn, description: "Bright and shiny",  color:
 			[(colors: ["#2a54dd", "#2ac6dd"], .up, .axial),
 			 (colors: ["#bff7ff", "#f4bfff"], .left, .axial),

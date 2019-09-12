@@ -65,15 +65,15 @@ class ViewController: UIViewController {
 		mediaPlayer.repeatMode = .none
 		mediaPlayer.shuffleMode = .off
 		
-		monitor.pathUpdateHandler = { [unowned self] path in
+		NetworkMonitor.monitor.pathUpdateHandler = { [unowned self] path in
 			if path.status == .satisfied {
 				print("connection successful")
-				self.connection = true
+				NetworkMonitor.connection = true
 			} else {
 				print("no connection")
+				NetworkMonitor.connection = false
 				if let isAcloudItem = self.mediaPlayer.nowPlayingItem?.isCloudItem {
 					if isAcloudItem {
-						self.connection = false
 						self.cloudItem = true
 						
 						DispatchQueue.main.async {
@@ -87,7 +87,7 @@ class ViewController: UIViewController {
 		}
 		
 		let queue = DispatchQueue(label: "Monitor")
-		monitor.start(queue: queue)
+		NetworkMonitor.monitor.start(queue: queue)
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
