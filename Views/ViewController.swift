@@ -117,10 +117,22 @@ class ViewController: UIViewController {
 			
 			if mediaPlayer.repeatMode != .one && mediaPlayer.shuffleMode == .off {
 				mediaPlayer.shuffleMode = .songs
-				shuffleButton.setImage(UIImage(named: "shuffle"), for: .normal)
+				
+				switch textColor {
+					case .white:
+						shuffleButton.setImage(UIImage(named: "shuffle"), for: .normal)
+					case .black:
+						shuffleButton.setImage(UIImage(named: "shuffleblack"), for: .normal)
+				}
 			} else if mediaPlayer.shuffleMode == .songs {
 				mediaPlayer.shuffleMode = .off
-				shuffleButton.setImage(UIImage(named: "shuffleoff"), for: .normal)
+				
+				switch textColor {
+				case .white:
+					shuffleButton.setImage(UIImage(named: "shuffleoff"), for: .normal)
+				case .black:
+					shuffleButton.setImage(UIImage(named: "shuffleoffblack"), for: .normal)
+				}
 			}
 		}
 	}
@@ -249,7 +261,7 @@ class ViewController: UIViewController {
 				// nothing
 			}
 			
-			/*if mediaPlayer.playbackState == .playing {
+			if mediaPlayer.playbackState == .playing {
 				switch textColor {
 					case .white:
 						playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
@@ -265,7 +277,7 @@ class ViewController: UIViewController {
 					playPauseButton.setImage(UIImage(named: "playblack"), for: .normal)
 				}
 				
-			}*/
+			}
 		}
 	}
 	
@@ -508,7 +520,13 @@ class ViewController: UIViewController {
 				startTimer(doesRepeat: true)
 			}
 			
-			shuffleButton.setImage(UIImage(named: "shuffleoff"), for: .normal)
+			switch textColor {
+			case .white:
+				shuffleButton.setImage(UIImage(named: "shuffleoff"), for: .normal)
+			case .black:
+				shuffleButton.setImage(UIImage(named: "shuffleoffblack"), for: .normal)
+			}
+			
 			mediaPlayer.shuffleMode = .off
 			shuffleButton.isEnabled = false
 		case .one:
@@ -529,7 +547,12 @@ class ViewController: UIViewController {
 			}
 		case .all:
 			mediaPlayer.repeatMode = .none
-			repeatButton.setImage(UIImage(named: "repeatoff"), for: .normal)
+			switch textColor {
+			case .white:
+				repeatButton.setImage(UIImage(named: "repeatoff"), for: .normal)
+			case .black:
+				repeatButton.setImage(UIImage(named: "repeatoffblack"), for: .normal)
+			}
 		default:
 			break
 		}
@@ -550,7 +573,13 @@ class ViewController: UIViewController {
 			
 		} else if mediaPlayer.shuffleMode == .songs {
 			mediaPlayer.shuffleMode = .off
-			shuffleButton.setImage(UIImage(named: "shuffleoff"), for: .normal)
+			
+			switch textColor {
+			case .white:
+				shuffleButton.setImage(UIImage(named: "shuffleoff"), for: .normal)
+			case .black:
+				shuffleButton.setImage(UIImage(named: "shuffleoffblack"), for: .normal)
+			}
 		}
 	}
 	
@@ -635,7 +664,7 @@ class ViewController: UIViewController {
 			
 			switch mediaPlayer.shuffleMode {
 			case .off:
-				shuffleButton.setImage(UIImage(named: "shuffleoff"), for: .normal)
+				shuffleButton.setImage(UIImage(named: "shuffleoffblack"), for: .normal)
 			case .songs:
 				shuffleButton.setImage(UIImage(named: "shuffleblack"), for: .normal)
 			default:
@@ -649,7 +678,7 @@ class ViewController: UIViewController {
 				case .all:
 					repeatButton.setImage(UIImage(named: "repeatblack"), for: .normal)
 				case .none:
-					repeatButton.setImage(UIImage(named: "repeatoff"), for: .normal)
+					repeatButton.setImage(UIImage(named: "repeatoffblack"), for: .normal)
 				default:
 					break
 			}

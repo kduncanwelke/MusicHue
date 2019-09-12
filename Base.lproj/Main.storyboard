@@ -66,7 +66,9 @@
                                     <constraint firstAttribute="height" constant="80" id="7Lu-GH-4yd"/>
                                     <constraint firstAttribute="width" secondItem="l1t-jV-nUc" secondAttribute="height" multiplier="1:1" id="WCO-pm-tmn"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="pause"/>
+                                <state key="normal" title="Button" image="pause">
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="playPausePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6zh-1n-LUY"/>
                                 </connections>
@@ -80,7 +82,7 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" translatesAutoresizingMaskIntoConstraints="NO" id="72q-Pj-RM9">
                                 <rect key="frame" x="93" y="389.5" width="228" height="2.5"/>
                                 <color key="progressTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="trackTintColor" white="0.0" alpha="0.35245385906040266" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="trackTintColor" white="0.0" alpha="0.55000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaJ-39-ykb">
                                 <rect key="frame" x="92" y="521.5" width="50" height="50"/>
@@ -111,6 +113,7 @@
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="1" height="-1"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -491,15 +494,15 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add" width="900" height="900"/>
-        <image name="backward" width="900" height="900"/>
-        <image name="color" width="900" height="900"/>
-        <image name="forward" width="900" height="900"/>
+        <image name="add" width="100" height="100"/>
+        <image name="backward" width="100" height="100"/>
+        <image name="color" width="100" height="100"/>
+        <image name="forward" width="100" height="100"/>
         <image name="noimage" width="800" height="800"/>
-        <image name="pause" width="900" height="900"/>
-        <image name="playlist" width="900" height="900"/>
-        <image name="repeatoff" width="900" height="900"/>
-        <image name="shuffleoff" width="900" height="900"/>
-        <image name="textwhite" width="900" height="900"/>
+        <image name="pause" width="100" height="100"/>
+        <image name="playlist" width="100" height="100"/>
+        <image name="repeatoff" width="100" height="100"/>
+        <image name="shuffleoff" width="100" height="100"/>
+        <image name="textwhite" width="100" height="100"/>
     </resources>
 </document>

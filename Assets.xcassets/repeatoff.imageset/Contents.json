@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "repeatoff.png",
+      "filename" : "repeatoff1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "repeatoff2.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "repeatoff.png",
       "scale" : "3x"
     }
   ],
