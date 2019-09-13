@@ -136,4 +136,28 @@ struct GradientManager {
 			 (colors: ["#f07af7", "#df32ea"], .down, .axial),
 			 (colors: ["#fcfbb8", "#f5f353"], .right, .axial)], purchased: false)
 	]
+	
+	static var purchasedGradients: [Color] = []
+	
+	static func convertToDirection(direction: String) -> AnimatedGradientView.Direction? {
+		if direction == "up" {
+			return .up
+		} else if direction == "down" {
+			return .down
+		} else if direction == "right" {
+			return .right
+		} else if direction == "left" {
+			return .left
+		} else if direction == "downRight" {
+			return .downRight
+		} else if direction == "downLeft" {
+			return .downLeft
+		} else if direction == "upRight" {
+			return .upRight
+		} else if direction == "upLeft" {
+			return .upLeft
+		} else {
+			return nil
+		}
+	}
 }
