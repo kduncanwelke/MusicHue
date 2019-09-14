@@ -92,7 +92,7 @@ class ViewController: UIViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		let animatedGradient = AnimatedGradientView(frame: view.bounds)
-		animatedGradient.animationValues = GradientManager.currentGradient.color
+		animatedGradient.animationValues = GradientManager.currentGradient
 		background.addSubview(animatedGradient)
 		
 		checkForNowPlaying()
@@ -141,7 +141,7 @@ class ViewController: UIViewController {
 		
 		DispatchQueue.main.async {
 			let animatedGradient = AnimatedGradientView(frame: self.view.bounds)
-			animatedGradient.animationValues = GradientManager.currentGradient.color
+			animatedGradient.animationValues = GradientManager.currentGradient
 			self.background.addSubview(animatedGradient)
 		}
 	}
@@ -460,7 +460,7 @@ class ViewController: UIViewController {
 				//playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
 			//case .black:
 				//print("black")
-				playPauseButton.setImage(UIImage(named: "pauseblack"), for: .normal)
+				//playPauseButton.setImage(UIImage(named: "pauseblack"), for: .normal)
 			//}
 			
 			mediaPlayer.pause()
@@ -469,7 +469,7 @@ class ViewController: UIViewController {
 			//case .white:
 				//playPauseButton.setImage(UIImage(named: "play"), for: .normal)
 			//case .black:
-				playPauseButton.setImage(UIImage(named: "playblack"), for: .normal)
+				//playPauseButton.setImage(UIImage(named: "playblack"), for: .normal)
 			//}
 			
 			mediaPlayer.play()

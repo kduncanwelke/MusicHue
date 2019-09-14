@@ -21,6 +21,7 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 	}
 	
 	func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+		print("updating transactions")
 		for transaction in transactions {
 			switch transaction.transactionState {
 			case .purchasing:
@@ -32,12 +33,8 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 			case .purchased:
 				if !transaction.downloads.isEmpty {
 					queue.start(transaction.downloads)
-				} else {
 					retrievePurchase(id: transaction.payment.productIdentifier)
-					queue.finishTransaction(transaction)
-					print("finished transaction")
 				}
-				
 				print("purchase succeeded")
 			// The transaction failed.
 			case .failed:
@@ -47,12 +44,8 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 			case .restored:
 				if !transaction.downloads.isEmpty {
 					queue.start(transaction.downloads)
-				} else {
 					retrievePurchase(id: transaction.payment.productIdentifier)
-					NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
-					queue.finishTransaction(transaction)
 				}
-				
 				print("restored")
 			default:
 				break
@@ -97,6 +90,8 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 				GradientManager.premiumList[index].purchased = true
 			}
 		}
+		
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
 	}
 	
 	func processDownload(download: SKDownload) {
@@ -122,11 +117,22 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 					
 					if let loaded = gradient, let first = GradientManager.convertToDirection(direction: loaded.firstDirection), let second = GradientManager.convertToDirection(direction: loaded.secondDirection), let third = GradientManager.convertToDirection(direction: loaded.thirdDirection), let fourth = GradientManager.convertToDirection(direction: loaded.fourthDirection) {
 						
-						let premiumGradient = Color(name: ColorName(rawValue: (loaded.name))!, description: loaded.description, color: [(colors: loaded.first, first, .axial), (colors: loaded.second, second, .axial), (colors: loaded.third, third, .axial),(colors: loaded.fourth, fourth, .axial)], purchased: true)
+						let premiumGradient: [AnimatedGradientView.AnimationValue] = [(colors: loaded.first, first, .axial), (colors: loaded.second, second, .axial), (colors: loaded.third, third, .axial),(colors: loaded.fourth, fourth, .axial)]
 						
-						GradientManager.purchasedGradients.append(premiumGradient)
-						NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
+						let color: ColorName = {
+							if loaded.name == "Unicorn" {
+								return ColorName.unicorn
+							} else {
+								return .automatic
+							}
+						}()
+						print("retrieving")
+						print(color)
+						print(premiumGradient)
+						
+						GradientManager.purchasedGradients.updateValue(premiumGradient, forKey: color)
 						print(GradientManager.purchasedGradients)
+						
 					} else {
 						print("could not convert")
 					}
@@ -136,6 +142,15 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 			}
 		} catch {
 			print("error")
+		}
+		
+		for transaction in SKPaymentQueue.default().transactions {
+			guard transaction.transactionState != .purchasing, transaction.transactionState != .deferred else {
+				return
+			}
+			
+			//Transaction can now be safely finished
+			SKPaymentQueue.default().finishTransaction(transaction)
 		}
 	}
 }
