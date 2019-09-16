@@ -13,7 +13,6 @@ struct Color {
 	let name: ColorName
 	let description: String
 	let color: [AnimatedGradientView.AnimationValue]
-	var purchased: Bool
 }
 
 enum ColorName: String {

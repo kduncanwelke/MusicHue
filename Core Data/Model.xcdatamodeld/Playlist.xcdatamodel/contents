@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Playlist" representedClassName="Playlist" syncable="YES" codeGenerationType="class">
+        <attribute name="songs" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+    </entity>
+    <entity name="SavedGradient" representedClassName="SavedGradient" syncable="YES" codeGenerationType="class">
+        <attribute name="firstColorSet" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="firstDirection" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fourthColorSet" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="fourthDirection" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="secondColorSet" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="secondDirection" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thirdColorSet" optional="YES" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
+        <attribute name="thirdDirection" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Playlist" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="SavedGradient" positionX="-63" positionY="-9" width="128" height="180"/>
+    </elements>
+</model>

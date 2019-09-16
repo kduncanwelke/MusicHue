@@ -8,6 +8,7 @@
 
 import Foundation
 
+// handle toggling of button color
 enum TextColor {
 	case white
 	case black

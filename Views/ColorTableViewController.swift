@@ -9,6 +9,7 @@
 import UIKit
 import AnimatedGradientView
 import StoreKit
+import CoreData
 
 class ColorTableViewController: UITableViewController {
 	
@@ -22,6 +23,8 @@ class ColorTableViewController: UITableViewController {
         super.viewDidLoad()
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: "reload"), object: nil)
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(saveGradient), name: NSNotification.Name(rawValue: "saveGradient"), object: nil)
 		
 		var isAuthorizedForPayments: Bool {
 			return SKPaymentQueue.canMakePayments()
@@ -109,13 +112,13 @@ class ColorTableViewController: UITableViewController {
 				product = products[indexPath.row]
 				
 				// prevent selection if not purchased
-				if color.purchased {
+				if GradientManager.purchasedGradients[color.name] != nil {
 					cell.purchaseButton.setTitle("Purchased", for: .normal)
 				} else {
 					cell.purchaseButton.setTitle(product.regularPrice, for: .normal)
 				}
 			} else {
-				if color.purchased {
+				if GradientManager.purchasedGradients[color.name] != nil {
 					cell.purchaseButton.setTitle("Purchased", for: .normal)
 				} else {
 					cell.purchaseButton.setTitle("Unavailable", for: .normal)
@@ -138,7 +141,7 @@ class ColorTableViewController: UITableViewController {
 			GradientManager.currentGradient = GradientManager.colorList[selectedName]
 			print(selectedName)
 		} else {
-			if GradientManager.premiumList[indexPath.row].purchased {
+			if GradientManager.purchasedGradients[GradientManager.premiumList[indexPath.row].name] != nil  {
 				let selectedName = GradientManager.premiumList[indexPath.row].name
 				GradientManager.currentGradientName = selectedName
 				GradientManager.currentGradient = GradientManager.purchasedGradients[selectedName]
@@ -148,7 +151,36 @@ class ColorTableViewController: UITableViewController {
 			}
 		}
 	}
-
+	
+	// MARK: Custom functions
+	
+	@objc func saveGradient() {
+		if let loaded = GradientManager.gradientToSave {
+			var managedContext = CoreDataManager.shared.managedObjectContext
+			
+			let newPremiumGradient = SavedGradient(context: managedContext)
+			
+			newPremiumGradient.name = loaded.name
+			newPremiumGradient.firstDirection = loaded.firstDirection
+			newPremiumGradient.firstColorSet = loaded.first
+			
+			newPremiumGradient.secondDirection = loaded.secondDirection
+			newPremiumGradient.secondColorSet = loaded.second
+			
+			newPremiumGradient.thirdDirection = loaded.thirdDirection
+			newPremiumGradient.thirdColorSet = loaded.third
+			
+			newPremiumGradient.fourthDirection = loaded.fourthDirection
+			newPremiumGradient.fourthColorSet = loaded.fourth
+			
+			do {
+				try managedContext.save()
+				print("saved gradient")
+			} catch {
+				// this should never be displayed but is here to cover the possibility
+			}
+		}
+	}
 
     /*
     // MARK: - Navigation
@@ -178,7 +210,6 @@ class ColorTableViewController: UITableViewController {
 
 
 extension ColorTableViewController: SKProductsRequestDelegate {
-	
 	func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
 		if !response.products.isEmpty {
 			products = response.products
@@ -202,7 +233,7 @@ extension ColorTableViewController: CellButtonTapDelegate {
 		let path = self.tableView.indexPath(for: sender)
 		
 		if let selected = path {
-			if GradientManager.premiumList[selected.row].purchased {
+			if GradientManager.purchasedGradients[GradientManager.premiumList[selected.row].name] != nil {
 				return
 			} else {
 				if NetworkMonitor.connection {

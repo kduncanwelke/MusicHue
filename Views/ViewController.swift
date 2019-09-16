@@ -65,6 +65,8 @@ class ViewController: UIViewController {
 		mediaPlayer.repeatMode = .none
 		mediaPlayer.shuffleMode = .off
 		
+		loadPurchasedGradients()
+		
 		NetworkMonitor.monitor.pathUpdateHandler = { [unowned self] path in
 			if path.status == .satisfied {
 				print("connection successful")
@@ -111,6 +113,7 @@ class ViewController: UIViewController {
 		return true
 	}
 	
+	// detect shake gesture for shuffle toggling
 	override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
 		if motion == .motionShake {
 			print("Shake Gesture Detected")
@@ -137,6 +140,7 @@ class ViewController: UIViewController {
 		}
 	}
 	
+	// handle gradient display when orientation is changed
 	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 		
 		DispatchQueue.main.async {
@@ -413,6 +417,25 @@ class ViewController: UIViewController {
 		}
 	}
 	
+	func loadPurchasedGradients() {
+		var managedContext = CoreDataManager.shared.managedObjectContext
+		var fetchRequest = NSFetchRequest<SavedGradient>(entityName: "SavedGradient")
+		
+		do {
+			var gradients = try managedContext.fetch(fetchRequest)
+			
+			for gradient in gradients {
+				print(gradient)
+				GradientManager.addToPurchased(loaded: gradient)
+			}
+			
+			print("gradients loaded")
+		} catch let error as NSError {
+			showAlert(title: "Could not retrieve data", message: "\(error.userInfo)")
+			print("fail")
+		}
+	}
+	
 	// MARK: IBActions
 	
 	@IBAction func changeColor(_ sender: UIButton) {
@@ -454,24 +477,8 @@ class ViewController: UIViewController {
 		}
 		
 		if mediaPlayer.playbackState == .playing {
-			//switch textColor {
-			//case .white:
-				//print("white")
-				//playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
-			//case .black:
-				//print("black")
-				//playPauseButton.setImage(UIImage(named: "pauseblack"), for: .normal)
-			//}
-			
 			mediaPlayer.pause()
 		} else {
-			//switch textColor {
-			//case .white:
-				//playPauseButton.setImage(UIImage(named: "play"), for: .normal)
-			//case .black:
-				//playPauseButton.setImage(UIImage(named: "playblack"), for: .normal)
-			//}
-			
 			mediaPlayer.play()
 		}
 	}
@@ -604,6 +611,7 @@ class ViewController: UIViewController {
 			textColor = .white
 		}
 		
+		// change status bar color too
 		setNeedsStatusBarAppearanceUpdate()
 		
 		switch textColor {

@@ -33,7 +33,6 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 			case .purchased:
 				if !transaction.downloads.isEmpty {
 					queue.start(transaction.downloads)
-					retrievePurchase(id: transaction.payment.productIdentifier)
 				}
 				print("purchase succeeded")
 			// The transaction failed.
@@ -44,7 +43,6 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 			case .restored:
 				if !transaction.downloads.isEmpty {
 					queue.start(transaction.downloads)
-					retrievePurchase(id: transaction.payment.productIdentifier)
 				}
 				print("restored")
 			default:
@@ -82,18 +80,6 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 		SKPaymentQueue.default().restoreCompletedTransactions()
 	}
 	
-	func retrievePurchase(id: String) {
-		for index in 0...(GradientManager.premiumList.count - 1) {
-			let name = id.dropFirst(9)
-			
-			if GradientManager.premiumList[index].name.rawValue == name {
-				GradientManager.premiumList[index].purchased = true
-			}
-		}
-		
-		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
-	}
-	
 	func processDownload(download: SKDownload) {
 		guard let hostedContentPath = download.contentURL?.appendingPathComponent("Contents") else {
 			print("failed")
@@ -101,6 +87,7 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 		}
 		
 		do {
+			// get downloaded file
 			let files = try FileManager.default.contentsOfDirectory(atPath: hostedContentPath.relativePath)
 			
 			for file in files {
@@ -112,25 +99,13 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 					}
 				}
 				do {
+					// extract data
 					let data = try Data(contentsOf: source)
 					let gradient = try? PropertyListDecoder().decode(Gradient.self, from: data)
 					
-					if let loaded = gradient, let first = GradientManager.convertToDirection(direction: loaded.firstDirection), let second = GradientManager.convertToDirection(direction: loaded.secondDirection), let third = GradientManager.convertToDirection(direction: loaded.thirdDirection), let fourth = GradientManager.convertToDirection(direction: loaded.fourthDirection) {
-						
-						let premiumGradient: [AnimatedGradientView.AnimationValue] = [(colors: loaded.first, first, .axial), (colors: loaded.second, second, .axial), (colors: loaded.third, third, .axial),(colors: loaded.fourth, fourth, .axial)]
-						
-						let color: ColorName = {
-							if loaded.name == "Unicorn" {
-								return ColorName.unicorn
-							} else {
-								return .automatic
-							}
-						}()
-						print("retrieving")
-						print(color)
-						print(premiumGradient)
-						
-						GradientManager.purchasedGradients.updateValue(premiumGradient, forKey: color)
+					if let loaded = gradient {
+						GradientManager.addToPurchased(loaded: loaded)
+						NotificationCenter.default.post(name: NSNotification.Name(rawValue: "saveGradient"), object: nil)
 						print(GradientManager.purchasedGradients)
 						
 					} else {
@@ -144,6 +119,7 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 			print("error")
 		}
 		
+		// finish transactions after downloads have been processed
 		for transaction in SKPaymentQueue.default().transactions {
 			guard transaction.transactionState != .purchasing, transaction.transactionState != .deferred else {
 				return
@@ -152,5 +128,8 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 			//Transaction can now be safely finished
 			SKPaymentQueue.default().finishTransaction(transaction)
 		}
+		
+		// tell table to reload
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
 	}
 }

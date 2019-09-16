@@ -11,9 +11,11 @@ import AnimatedGradientView
 
 struct GradientManager {
 	
+	// manage which gradient is currently in use
 	static var currentGradientName: ColorName = ColorName.automatic
 	static var currentGradient = colorList[ColorName.automatic]
 
+	// list of free colors
 	static let colorList: [ColorName: [AnimatedGradientView.AnimationValue]] = [
 	
 		ColorName.automatic:
@@ -130,73 +132,81 @@ struct GradientManager {
 			 (colors: ["#0bf300", "#f30000"], .up, .axial)]
 	]
 	
+	// static previews of colors
 	static let colorPreviews = [
 		
 		Color(name: ColorName.automatic, description: "The classic theme", color:
-			[(colors: ["#fbe865", "#65f2fb"], .right, .axial)], purchased: true)
+			[(colors: ["#fbe865", "#65f2fb"], .right, .axial)])
 		,
 		Color(name: ColorName.arctic, description: "Chilly tundra tones", color:
-			[(colors: ["#4FC4E8", "#7CD3EE", "#7CE5EE"], .right, .axial)], purchased: true)
+			[(colors: ["#4FC4E8", "#7CD3EE", "#7CE5EE"], .right, .axial)])
 		,
 		Color(name: ColorName.nebula, description: "Space dust hues", color:
-			[(colors: ["#331551", "#54185D", "#872796"], .down, .axial)], purchased: true)
+			[(colors: ["#331551", "#54185D", "#872796"], .down, .axial)])
 		,
 		Color(name: ColorName.sea, description: "Cooling ocean vibes",  color:
-			[(colors: ["#1A5FAD", "#2D99EB", "#52ABEF"], .left, .axial)], purchased: true)
+			[(colors: ["#1A5FAD", "#2D99EB", "#52ABEF"], .left, .axial)])
 		,
 		Color(name: ColorName.rainbow, description: "All your colors",  color:
-			[(colors: ["#da39ed", "#ed3939", "#ed9f39"], .downRight, .axial)], purchased: true)
+			[(colors: ["#da39ed", "#ed3939", "#ed9f39"], .downRight, .axial)])
 		,
 		Color(name: ColorName.sunlight, description: "A sunny day",  color:
-			[(colors: ["#FFE838", "#FFEB52", "#fff399"], .downLeft, .axial)], purchased: true)
+			[(colors: ["#FFE838", "#FFEB52", "#fff399"], .downLeft, .axial)])
 		,
 		Color(name: ColorName.forest, description: "Cool, calming woods",  color:
-			[(colors: ["#21BA63", "#21834B", "#259372"], .left, .axial)], purchased: true)
+			[(colors: ["#21BA63", "#21834B", "#259372"], .left, .axial)])
 		,
 		Color(name: ColorName.sunset, description: "Sun getting low",  color:
-			[(colors: ["#603f76", "#74763f", "#895e13"], .up, .axial)], purchased: true)
+			[(colors: ["#603f76", "#74763f", "#895e13"], .up, .axial)])
 		,
 		Color(name: ColorName.sunrise, description: "Early morning vibes",  color:
-			[(colors: ["#5663b5", "#5697b5", "#a6b556"], .down, .axial)], purchased: true)
+			[(colors: ["#5663b5", "#5697b5", "#a6b556"], .down, .axial)])
 		,
 		Color(name: ColorName.fire, description: "Warm and lively",  color:
-			[(colors: ["#F56D29", "#F5A029", "#F5C929"], .downRight, .axial)], purchased: true)
+			[(colors: ["#F56D29", "#F5A029", "#F5C929"], .downRight, .axial)])
 		,
 		Color(name: ColorName.mountain, description: "Calming dusky hues",  color:
-			[(colors: ["#9960D2", "#6960D2", "#5565DD"], .right, .axial)], purchased: true)
+			[(colors: ["#9960D2", "#6960D2", "#5565DD"], .right, .axial)])
 		,
 		Color(name: ColorName.pastel, description: "Something sweet",  color:
-			[(colors: ["#97f7a8", "#97f7da", "#97cdf7"], .left, .axial)], purchased: true)
+			[(colors: ["#97f7a8", "#97f7da", "#97cdf7"], .left, .axial)])
 		,
 		Color(name: ColorName.space, description: "Deep outer limits",  color:
-			[(colors: ["#24145C", "#352470", "#242E70"], .downLeft, .axial)], purchased: true)
+			[(colors: ["#24145C", "#352470", "#242E70"], .downLeft, .axial)])
 		,
 		Color(name: ColorName.sky, description: "Time for cloudgazing",  color:
-			[(colors: ["#0a98e1", "#5ac5fc", "#bee9ff"], .up, .axial)], purchased: true)
+			[(colors: ["#0a98e1", "#5ac5fc", "#bee9ff"], .up, .axial)])
 		,
 		Color(name: ColorName.spring, description: "Cheery springtime hues",  color:
-			[(colors: ["#3dd279", "#cde94a", "#e1ff9a"], .up, .axial)], purchased: true)
+			[(colors: ["#3dd279", "#cde94a", "#e1ff9a"], .up, .axial)])
 		,
 		Color(name: ColorName.summer, description: "Bright and sunny",  color:
-			[(colors: ["#FCD173", "#FCB582", "#FEBED4"], .down, .axial)], purchased: true)
+			[(colors: ["#FCD173", "#FCB582", "#FEBED4"], .down, .axial)])
 		,
 		Color(name: ColorName.fall, description: "Autumn leaves",  color:
-			[(colors: ["#A25916", "#DC5009", "#F59B14"], .down, .axial)], purchased: true)
+			[(colors: ["#A25916", "#DC5009", "#F59B14"], .down, .axial)])
 		,
 		Color(name: ColorName.winter, description: "Chilly snow",  color:
-			[(colors: ["#88A7F6", "#8CC6F2", "#8CC6F2"], .right, .axial)], purchased: true)
+			[(colors: ["#88A7F6", "#8CC6F2", "#8CC6F2"], .right, .axial)])
 		,
 		Color(name: ColorName.complements, description: "Opposites go together",  color:
-			[(colors: ["#f38300", "#000bf3"], .up, .axial)], purchased: true)
+			[(colors: ["#f38300", "#000bf3"], .up, .axial)])
 	]
 	
+	// static preview of premium colors
 	static var premiumList = [
 		Color(name: ColorName.unicorn, description: "Bright and shiny",  color:
-			[(colors: ["#2a54dd", "#2ac6dd"], .up, .axial)], purchased: false)
+			[(colors: ["#2a54dd", "#2ac6dd"], .up, .axial)])
 	]
 	
+	// manage saves and purchases
+	static var gradientToSave: Gradient?
 	static var purchasedGradients: [ColorName: [AnimatedGradientView.AnimationValue]] = [:]
 	
+	
+	// MARK: methods
+	
+	// get direction for animatedgradient from string
 	static func convertToDirection(direction: String) -> AnimatedGradientView.Direction? {
 		if direction == "up" {
 			return .up
@@ -216,6 +226,44 @@ struct GradientManager {
 			return .upLeft
 		} else {
 			return nil
+		}
+	}
+	
+	// convert purchased gradient into color object
+	static func addToPurchased(loaded: Gradient) {
+		if let first = GradientManager.convertToDirection(direction: loaded.firstDirection), let second = GradientManager.convertToDirection(direction: loaded.secondDirection), let third = GradientManager.convertToDirection(direction: loaded.thirdDirection), let fourth = GradientManager.convertToDirection(direction: loaded.fourthDirection) {
+			
+			let premiumGradient: [AnimatedGradientView.AnimationValue] = [(colors: loaded.first, first, .axial), (colors: loaded.second, second, .axial), (colors: loaded.third, third, .axial),(colors: loaded.fourth, fourth, .axial)]
+			
+			let color: ColorName = {
+				if loaded.name == "Unicorn" {
+					return ColorName.unicorn
+				} else {
+					return .automatic
+				}
+			}()
+			
+			GradientManager.gradientToSave = loaded
+			
+			GradientManager.purchasedGradients.updateValue(premiumGradient, forKey: color)
+		}
+	}
+	
+	// convert purchased savedgradient loaded from core data into color object
+	static func addToPurchased(loaded: SavedGradient) {
+		if let firstDirection = loaded.firstDirection, let secondDirection = loaded.secondDirection, let thirdDirection = loaded.thirdDirection, let fourthDirection = loaded.fourthDirection, let first = GradientManager.convertToDirection(direction: firstDirection), let second = GradientManager.convertToDirection(direction: secondDirection), let third = GradientManager.convertToDirection(direction: thirdDirection), let fourth = GradientManager.convertToDirection(direction: fourthDirection), let firstColors = loaded.firstColorSet, let secondColors = loaded.secondColorSet, let thirdColors = loaded.thirdColorSet, let fourthColors = loaded.fourthColorSet {
+			
+			let premiumGradient: [AnimatedGradientView.AnimationValue] = [(colors: firstColors, first, .axial), (colors: secondColors, second, .axial), (colors: thirdColors, third, .axial),(colors: fourthColors, fourth, .axial)]
+			
+			let color: ColorName = {
+				if loaded.name == "Unicorn" {
+					return ColorName.unicorn
+				} else {
+					return .automatic
+				}
+			}()
+			
+			GradientManager.purchasedGradients.updateValue(premiumGradient, forKey: color)
 		}
 	}
 }
