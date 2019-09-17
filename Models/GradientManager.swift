@@ -56,9 +56,9 @@ struct GradientManager {
 		,
 		ColorName.forest:
 			[(colors: ["#21BA63", "#21834B", "#259372"], .left, .axial),
-			 (colors: ["#259372", "#2DB48B", "#4CC8A3"], .downLeft, .axial),
-			 (colors: ["#4CC8A3", "#3DD68A", "#20CB75"], .down, .axial),
-			 (colors: ["#20CB75", "#19A35E", "#21BA63"], .downLeft, .axial)]
+			 (colors: ["#259372", "#0F693B", "#094627"], .downLeft, .axial),
+			 (colors: ["#094627", "#036332", "#03781F"], .down, .axial),
+			 (colors: ["#03781F", "#078E43", "#08B956"], .downLeft, .axial)]
 		,
 		ColorName.sunset:
 			[(colors: ["#603f76", "#74763f", "#895e13"], .up, .axial),
@@ -130,6 +130,18 @@ struct GradientManager {
 			[(colors: ["#f38300", "#000bf3"], .up, .axial),
 			 (colors: ["#9500f3", "#f3f000"], .up, .axial),
 			 (colors: ["#0bf300", "#f30000"], .up, .axial)]
+		,
+		ColorName.triads:
+			[(colors: ["#DED81F", "#1FDED8", "#D81FDE"], .downLeft, .axial),
+			 (colors: ["#9E1FDE", "#DE9E1F", "#1FDE9E"], .downLeft, .axial),
+			 (colors: ["#DE1F77", "#1F77DE", "#77DE1F"], .downLeft, .axial)]
+		,
+		ColorName.mesa:
+			[(colors: ["#E65C0D", "#D20E01", "#C8001D"], .up, .axial),
+			 (colors: ["#C8001D", "#AF023C", "#84042F"], .up, .axial),
+			 (colors: ["#84042F", "#970707", "#621D09"], .up, .axial),
+			 (colors: ["#621D09", "#3F120D", "#201513"], .up, .axial)]
+		,
 	]
 	
 	// static previews of colors
@@ -157,7 +169,7 @@ struct GradientManager {
 			[(colors: ["#21BA63", "#21834B", "#259372"], .left, .axial)])
 		,
 		Color(name: ColorName.sunset, description: "Sun getting low",  color:
-			[(colors: ["#603f76", "#74763f", "#895e13"], .up, .axial)])
+			[(colors: ["#ec3f11", "#80341f", "#603f76"], .up, .axial)])
 		,
 		Color(name: ColorName.sunrise, description: "Early morning vibes",  color:
 			[(colors: ["#5663b5", "#5697b5", "#a6b556"], .down, .axial)])
@@ -191,11 +203,15 @@ struct GradientManager {
 		,
 		Color(name: ColorName.complements, description: "Opposites go together",  color:
 			[(colors: ["#f38300", "#000bf3"], .up, .axial)])
+		,
+		Color(name: ColorName.triads, description: "Harmonies of three", color: [(colors: ["#DED81F", "#1FDED8", "#D81FDE"], .downLeft, .axial)])
+		,
+		Color(name: ColorName.mesa, description: "Rusty hues", color: [(colors: ["#E65C0D", "#D20E01", "#C8001D"], .up, .axial)])
 	]
 	
 	// static preview of premium colors
 	static var premiumList = [
-		Color(name: ColorName.unicorn, description: "Bright and shiny",  color:
+		Color(name: ColorName.unicorn, description: "Saturated fantasy",  color:
 			[(colors: ["#2a54dd", "#2ac6dd"], .up, .axial)])
 	]
 	
@@ -242,8 +258,6 @@ struct GradientManager {
 					return .automatic
 				}
 			}()
-			
-			GradientManager.gradientToSave = loaded
 			
 			GradientManager.purchasedGradients.updateValue(premiumGradient, forKey: color)
 		}

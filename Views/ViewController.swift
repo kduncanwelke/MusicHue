@@ -71,6 +71,7 @@ class ViewController: UIViewController {
 			if path.status == .satisfied {
 				print("connection successful")
 				NetworkMonitor.connection = true
+				NotificationCenter.default.post(name: NSNotification.Name(rawValue: "networkRestored"), object: nil)
 			} else {
 				print("no connection")
 				NetworkMonitor.connection = false
@@ -619,6 +620,9 @@ class ViewController: UIViewController {
 			currentlyPlaying.textColor = UIColor.white
 			artist.textColor = UIColor.white
 			
+			currentlyPlaying.shadowColor = UIColor.black
+			artist.shadowColor = UIColor.black
+			
 			forwardButton.setImage(UIImage(named: "forward"), for: .normal)
 			backButton.setImage(UIImage(named: "backward"), for: .normal)
 			addButton.setImage(UIImage(named: "add"), for: .normal)
@@ -655,6 +659,11 @@ class ViewController: UIViewController {
 		case .black:
 			currentlyPlaying.textColor = UIColor.black
 			artist.textColor = UIColor.black
+			
+			currentlyPlaying.shadowColor = UIColor.white
+			currentlyPlaying.shadowOffset = CGSize(width: 1, height: 1)
+			artist.shadowColor = UIColor.white
+			artist.shadowOffset = CGSize(width: 1, height: 1)
 			
 			forwardButton.setImage(UIImage(named: "forwardblack"), for: .normal)
 			backButton.setImage(UIImage(named: "backwardblack"), for: .normal)

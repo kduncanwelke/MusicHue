@@ -36,4 +36,6 @@ enum ColorName: String {
 	case winter = "Winter"
 	case unicorn = "Unicorn"
 	case complements = "Complements"
+	case triads = "Triads"
+	case mesa = "Mesa"
 }

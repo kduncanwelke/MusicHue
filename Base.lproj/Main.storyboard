@@ -37,11 +37,11 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28g-Eh-4xU">
-                                <rect key="frame" x="267" y="441.5" width="60" height="60"/>
+                                <rect key="frame" x="267" y="439" width="65" height="65"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="28g-Eh-4xU" secondAttribute="height" multiplier="1:1" id="eD0-dH-9h1"/>
-                                    <constraint firstAttribute="height" constant="60" id="xmK-cF-68A"/>
+                                    <constraint firstAttribute="height" constant="65" id="xmK-cF-68A"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="forward"/>
                                 <connections>
@@ -50,10 +50,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwf-jT-LTI">
-                                <rect key="frame" x="87" y="441.5" width="60" height="60"/>
+                                <rect key="frame" x="82" y="439" width="65" height="65"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="2i8-fB-eW4"/>
+                                    <constraint firstAttribute="height" constant="65" id="2i8-fB-eW4"/>
                                     <constraint firstAttribute="width" secondItem="Jwf-jT-LTI" secondAttribute="height" multiplier="1:1" id="soq-Hi-HJ0"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="backward"/>
@@ -87,9 +87,9 @@
                                 <color key="trackTintColor" white="0.0" alpha="0.55000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaJ-39-ykb">
-                                <rect key="frame" x="92" y="521.5" width="50" height="50"/>
+                                <rect key="frame" x="87" y="524" width="55" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ffZ-40-raJ"/>
+                                    <constraint firstAttribute="height" constant="55" id="ffZ-40-raJ"/>
                                     <constraint firstAttribute="width" secondItem="LaJ-39-ykb" secondAttribute="height" multiplier="1:1" id="ipk-zq-hIL"/>
                                 </constraints>
                                 <state key="normal" image="repeatoff"/>
@@ -98,9 +98,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUb-nh-aTq">
-                                <rect key="frame" x="272" y="521.5" width="50" height="50"/>
+                                <rect key="frame" x="272" y="524" width="55" height="55"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="fEa-9X-UKk"/>
+                                    <constraint firstAttribute="height" constant="55" id="fEa-9X-UKk"/>
                                 </constraints>
                                 <state key="normal" image="shuffleoff"/>
                                 <connections>
@@ -127,17 +127,17 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="DLG-Lq-YrG">
-                                <rect key="frame" x="20" y="782" width="374" height="50"/>
+                                <rect key="frame" x="20" y="777" width="374" height="55"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="evI-or-Cmf">
-                                        <rect key="frame" x="0.0" y="0.0" width="114" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="124" height="55"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GO7-cc-I4B">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="GO7-cc-I4B" secondAttribute="height" multiplier="1:1" id="C9q-Zf-MDS"/>
-                                                    <constraint firstAttribute="width" constant="50" id="Psp-64-OD6"/>
+                                                    <constraint firstAttribute="width" constant="55" id="Psp-64-OD6"/>
                                                 </constraints>
                                                 <state key="normal" image="add"/>
                                                 <connections>
@@ -145,11 +145,11 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dB2-bT-njg">
-                                                <rect key="frame" x="64" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="69" y="0.0" width="55" height="55"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="dB2-bT-njg" secondAttribute="height" multiplier="1:1" id="Bnq-S5-qhp"/>
-                                                    <constraint firstAttribute="width" constant="50" id="R2t-5N-g0d"/>
+                                                    <constraint firstAttribute="width" constant="55" id="R2t-5N-g0d"/>
                                                 </constraints>
                                                 <state key="normal" image="playlist"/>
                                                 <connections>
@@ -159,14 +159,14 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="mQU-9Y-7qu">
-                                        <rect key="frame" x="260" y="0.0" width="114" height="50"/>
+                                        <rect key="frame" x="250" y="0.0" width="124" height="55"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLV-HO-UPF">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="dLV-HO-UPF" secondAttribute="height" multiplier="1:1" id="EJv-Jg-Goh"/>
-                                                    <constraint firstAttribute="width" constant="50" id="FFn-1q-eW3"/>
+                                                    <constraint firstAttribute="width" constant="55" id="FFn-1q-eW3"/>
                                                 </constraints>
                                                 <state key="normal" image="textwhite"/>
                                                 <connections>
@@ -174,10 +174,10 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Co5-j4-Hvh">
-                                                <rect key="frame" x="64" y="0.0" width="50" height="50"/>
+                                                <rect key="frame" x="69" y="0.0" width="55" height="55"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="52z-Ig-fxP"/>
+                                                    <constraint firstAttribute="width" constant="55" id="52z-Ig-fxP"/>
                                                     <constraint firstAttribute="width" secondItem="Co5-j4-Hvh" secondAttribute="height" multiplier="1:1" id="ew2-Gp-MJI"/>
                                                 </constraints>
                                                 <state key="normal" image="color"/>

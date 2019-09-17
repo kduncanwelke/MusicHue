@@ -26,13 +26,9 @@ class ColorTableViewController: UITableViewController {
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(saveGradient), name: NSNotification.Name(rawValue: "saveGradient"), object: nil)
 		
-		var isAuthorizedForPayments: Bool {
-			return SKPaymentQueue.canMakePayments()
-		}
+		NotificationCenter.default.addObserver(self, selector: #selector(networkRestored), name: NSNotification.Name(rawValue: "networkRestored"), object: nil)
 		
-		if isAuthorizedForPayments {
-			validate(productIdentifiers: [Products.unicorn])
-		}
+		getProducts()
     }
 	
 	// MARK: Custom functions
@@ -40,6 +36,22 @@ class ColorTableViewController: UITableViewController {
 	@objc func reload() {
 		tableView.reloadData()
 		print("reloaded")
+	}
+	
+	@objc func networkRestored() {
+		if products.isEmpty {
+			getProducts()
+		}
+	}
+	
+	func getProducts() {
+		var isAuthorizedForPayments: Bool {
+			return SKPaymentQueue.canMakePayments()
+		}
+		
+		if isAuthorizedForPayments {
+			validate(productIdentifiers: [Products.unicorn])
+		}
 	}
 	
 	func validate(productIdentifiers: [String]) {
@@ -147,6 +159,7 @@ class ColorTableViewController: UITableViewController {
 				GradientManager.currentGradient = GradientManager.purchasedGradients[selectedName]
 				print(selectedName)
 			} else {
+				tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
 				return
 			}
 		}
@@ -156,6 +169,13 @@ class ColorTableViewController: UITableViewController {
 	
 	@objc func saveGradient() {
 		if let loaded = GradientManager.gradientToSave {
+			
+			// prevent resave of existing purchase
+			if let name = ColorName.init(rawValue: loaded.name) {
+				if GradientManager.purchasedGradients[name] != nil {
+					return
+				}
+			}
 			var managedContext = CoreDataManager.shared.managedObjectContext
 			
 			let newPremiumGradient = SavedGradient(context: managedContext)
@@ -176,6 +196,7 @@ class ColorTableViewController: UITableViewController {
 			do {
 				try managedContext.save()
 				print("saved gradient")
+				GradientManager.addToPurchased(loaded: loaded)
 			} catch {
 				// this should never be displayed but is here to cover the possibility
 			}
@@ -218,6 +239,8 @@ extension ColorTableViewController: SKProductsRequestDelegate {
 				print(product.price)
 				print(product.priceLocale)
 			}
+			
+			tableView.reloadData()
 		}
 		
 		for invalidIdentifier in response.invalidProductIdentifiers {
@@ -240,7 +263,7 @@ extension ColorTableViewController: CellButtonTapDelegate {
 					
 					var isAuthorizedForPayments = SKPaymentQueue.canMakePayments()
 					
-					if isAuthorizedForPayments {
+					if isAuthorizedForPayments && !products.isEmpty {
 						StoreObserver.iapObserver.buy(products[selected.row])
 					} else {
 						showAlert(title: "Payments not authorized", message: "This device is not permitted to process payments")

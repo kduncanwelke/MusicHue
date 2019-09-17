@@ -104,7 +104,7 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 					let gradient = try? PropertyListDecoder().decode(Gradient.self, from: data)
 					
 					if let loaded = gradient {
-						GradientManager.addToPurchased(loaded: loaded)
+						GradientManager.gradientToSave = loaded
 						NotificationCenter.default.post(name: NSNotification.Name(rawValue: "saveGradient"), object: nil)
 						print(GradientManager.purchasedGradients)
 						
