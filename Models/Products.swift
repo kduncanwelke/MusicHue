@@ -10,4 +10,5 @@ import Foundation
 
 struct Products {
 	public static let unicorn = "MusicHue_Unicorn"
+	public static let nebula = "MusicHue_Nebula"
 }

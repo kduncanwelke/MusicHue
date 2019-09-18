@@ -57,6 +57,9 @@ class ViewController: UIViewController {
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(newSong), name: NSNotification.Name(rawValue: "newSong"), object: nil)
 		
+		NotificationCenter.default.addObserver(self, selector: #selector(songDeleted), name: NSNotification.Name(rawValue: "songDeleted"), object: nil)
+		
+		
 		selectMusicButton.layer.cornerRadius = 10
 		viewPlaylistButton.layer.cornerRadius = 10
 		colorButton.layer.cornerRadius = 10
@@ -286,6 +289,14 @@ class ViewController: UIViewController {
 		}
 	}
 	
+	@objc func songDeleted() {
+		var collection = MPMediaItemCollection(items: MusicManager.songs)
+	
+		mediaPlayer.setQueue(with: collection)
+		save()
+		mediaPlayer.prepareToPlay()
+	}
+	
 	@objc func songChanged() {
 		print("song changed")
 		checkStatus()
@@ -352,7 +363,7 @@ class ViewController: UIViewController {
 			
 			do {
 				try managedContext.save()
-				print("saved")
+				print("saved playlist")
 				//NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
 			} catch {
 				// this should never be displayed but is here to cover the possibility
@@ -376,7 +387,7 @@ class ViewController: UIViewController {
 			
 			do {
 				try managedContext.save()
-				print("saved")
+				print("saved playlist")
 				//NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
 			} catch {
 				// this should never be displayed but is here to cover the possibility

@@ -50,7 +50,7 @@ class ColorTableViewController: UITableViewController {
 		}
 		
 		if isAuthorizedForPayments {
-			validate(productIdentifiers: [Products.unicorn])
+			validate(productIdentifiers: [Products.unicorn, Products.nebula])
 		}
 	}
 	

@@ -127,7 +127,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="DLG-Lq-YrG">
-                                <rect key="frame" x="20" y="777" width="374" height="55"/>
+                                <rect key="frame" x="20" y="787" width="374" height="55"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="evI-or-Cmf">
                                         <rect key="frame" x="0.0" y="0.0" width="124" height="55"/>
@@ -226,7 +226,7 @@
                             <constraint firstItem="72q-Pj-RM9" firstAttribute="width" secondItem="3O2-tG-bbI" secondAttribute="width" id="maO-FA-wxl"/>
                             <constraint firstItem="l1t-jV-nUc" firstAttribute="top" secondItem="3O2-tG-bbI" secondAttribute="bottom" constant="50" id="mon-zH-NhM"/>
                             <constraint firstItem="uUb-nh-aTq" firstAttribute="top" secondItem="28g-Eh-4xU" secondAttribute="bottom" constant="20" id="r1H-PG-CGh"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DLG-Lq-YrG" secondAttribute="bottom" constant="30" id="smz-gx-CJr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="DLG-Lq-YrG" secondAttribute="bottom" constant="20" id="smz-gx-CJr"/>
                             <constraint firstAttribute="trailing" secondItem="t1F-DP-euJ" secondAttribute="trailing" id="tJv-Kv-vwd"/>
                             <constraint firstItem="DLG-Lq-YrG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uUb-nh-aTq" secondAttribute="bottom" constant="30" id="wOC-Xh-h7y"/>
                             <constraint firstItem="Qmr-Zp-0sn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="wdO-VG-9cm"/>
@@ -332,11 +332,11 @@
                                         <constraint firstItem="Jnw-oP-l0C" firstAttribute="leading" secondItem="vWn-ki-o8a" secondAttribute="trailing" constant="10" id="9qK-KX-CiD"/>
                                         <constraint firstItem="jdA-zl-eWt" firstAttribute="trailing" secondItem="YTh-JS-YfI" secondAttribute="trailingMargin" id="AaV-yH-Rlq"/>
                                         <constraint firstItem="vWn-ki-o8a" firstAttribute="top" secondItem="YTh-JS-YfI" secondAttribute="top" constant="10" id="Pfh-lD-vVg"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="jdA-zl-eWt" secondAttribute="bottom" constant="14" id="Rzc-m3-Pwh"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Jnw-oP-l0C" secondAttribute="bottom" constant="4.5" id="gA0-TI-Fuk"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="jdA-zl-eWt" secondAttribute="bottom" priority="999" constant="14" id="Rzc-m3-Pwh"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Jnw-oP-l0C" secondAttribute="bottom" priority="999" constant="4.5" id="gA0-TI-Fuk"/>
                                         <constraint firstItem="vWn-ki-o8a" firstAttribute="leading" secondItem="YTh-JS-YfI" secondAttribute="leading" constant="12" id="k57-id-0jw"/>
                                         <constraint firstItem="jdA-zl-eWt" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jnw-oP-l0C" secondAttribute="trailing" constant="15" id="udx-4u-5Jh"/>
-                                        <constraint firstAttribute="bottom" secondItem="vWn-ki-o8a" secondAttribute="bottom" constant="10" id="vyn-Yo-v2M"/>
+                                        <constraint firstAttribute="bottom" secondItem="vWn-ki-o8a" secondAttribute="bottom" priority="999" constant="10" id="vyn-Yo-v2M"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>

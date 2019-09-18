@@ -10,7 +10,6 @@ import Foundation
 
 struct Gradient: Codable {
 	var name: String
-	var description: String
 	
 	var firstDirection: String
 	var secondDirection: String

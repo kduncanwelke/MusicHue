@@ -30,12 +30,6 @@ struct GradientManager {
 			(colors: ["#D4F3F7", "#D4E7F7", "#7FBAEB"], .down, .axial),
 			(colors: ["#7FBAEB", "#65A6E7", "#4FC4E8"], .downRight, .axial)]
 		,
-		ColorName.nebula:
-			[(colors: ["#331551", "#54185D", "#872796"], .down, .axial),
-			 (colors: ["#872796", "#CA1688", "#E42FDE"], .downLeft, .axial),
-			 (colors: ["#E42FDE", "#B618B0", "#703AAC"], .left, .axial),
-			 (colors: ["#703AAC", "#371859", "#331551"], .downLeft, .axial)]
-		,
 		ColorName.sea:
 			[(colors: ["#1A5FAD", "#2D99EB", "#52ABEF"], .left, .axial),
 			 (colors: ["#52ABEF", "#52CDEF", "#36BDE2"], .down, .axial),
@@ -153,9 +147,6 @@ struct GradientManager {
 		Color(name: ColorName.arctic, description: "Chilly tundra tones", color:
 			[(colors: ["#4FC4E8", "#7CD3EE", "#7CE5EE"], .right, .axial)])
 		,
-		Color(name: ColorName.nebula, description: "Space dust hues", color:
-			[(colors: ["#331551", "#54185D", "#872796"], .down, .axial)])
-		,
 		Color(name: ColorName.sea, description: "Cooling ocean vibes",  color:
 			[(colors: ["#1A5FAD", "#2D99EB", "#52ABEF"], .left, .axial)])
 		,
@@ -211,6 +202,9 @@ struct GradientManager {
 	
 	// static preview of premium colors
 	static var premiumList = [
+		Color(name: ColorName.nebula, description: "Space dust hues", color:
+			[(colors: ["#331551", "#54185D", "#872796"], .down, .axial)])
+		,
 		Color(name: ColorName.unicorn, description: "Saturated fantasy",  color:
 			[(colors: ["#2a54dd", "#2ac6dd"], .up, .axial)])
 	]
@@ -254,6 +248,8 @@ struct GradientManager {
 			let color: ColorName = {
 				if loaded.name == "Unicorn" {
 					return ColorName.unicorn
+				} else if loaded.name == "Nebula" {
+					return ColorName.nebula
 				} else {
 					return .automatic
 				}
@@ -272,6 +268,8 @@ struct GradientManager {
 			let color: ColorName = {
 				if loaded.name == "Unicorn" {
 					return ColorName.unicorn
+				} else if loaded.name == "Nebula" {
+					return ColorName.nebula
 				} else {
 					return .automatic
 				}

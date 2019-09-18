@@ -88,10 +88,10 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 		
 		do {
 			// get downloaded file
-			let files = try FileManager.default.contentsOfDirectory(atPath: hostedContentPath.relativePath)
+			var files = try FileManager.default.contentsOfDirectory(atPath: hostedContentPath.relativePath)
 			
 			for file in files {
-				let source = hostedContentPath.appendingPathComponent(file)
+				var source = hostedContentPath.appendingPathComponent(file)
 				
 				URLSession.shared.dataTask(with: source) { (data, response, error) in
 					if error != nil {
@@ -100,8 +100,8 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 				}
 				do {
 					// extract data
-					let data = try Data(contentsOf: source)
-					let gradient = try? PropertyListDecoder().decode(Gradient.self, from: data)
+					var data = try Data(contentsOf: source)
+					var gradient = try? PropertyListDecoder().decode(Gradient.self, from: data)
 					
 					if let loaded = gradient {
 						GradientManager.gradientToSave = loaded
