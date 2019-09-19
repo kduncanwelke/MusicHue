@@ -87,49 +87,52 @@ struct GradientManager {
 		Color(name: ColorName.arctic, description: "Chilly tundra tones", color:
 			[(colors: ["#4FC4E8", "#7CD3EE", "#7CE5EE"], .right, .axial)])
 		,
-		Color(name: ColorName.sea, description: "Cooling ocean vibes",  color:
-			[(colors: ["#1A5FAD", "#2D99EB", "#52ABEF"], .left, .axial)])
-		,
-		Color(name: ColorName.sunlight, description: "A sunny day",  color:
-			[(colors: ["#FFE838", "#FFEB52", "#fff399"], .downLeft, .axial)])
+		Color(name: ColorName.complements, description: "Opposites go together",  color:
+			[(colors: ["#f38300", "#000bf3"], .up, .axial)])
 		,
 		Color(name: ColorName.forest, description: "Cool, calming woods",  color:
 			[(colors: ["#21BA63", "#21834B", "#259372"], .left, .axial)])
 		,
-		Color(name: ColorName.sunset, description: "Sun getting low",  color:
-			[(colors: ["#ec3f11", "#80341f", "#603f76"], .up, .axial)])
+		Color(name: ColorName.mesa, description: "Rusty hues", color: [(colors: ["#E65C0D", "#D20E01", "#C8001D"], .up, .axial)])
 		,
-		Color(name: ColorName.sunrise, description: "Early morning vibes",  color:
-			[(colors: ["#5663b5", "#5697b5", "#a6b556"], .down, .axial)])
+		Color(name: ColorName.sea, description: "Cooling ocean vibes",  color:
+			[(colors: ["#1A5FAD", "#2D99EB", "#52ABEF"], .left, .axial)])
 		,
 		Color(name: ColorName.sky, description: "Time for cloudgazing",  color:
 			[(colors: ["#0a98e1", "#5ac5fc", "#bee9ff"], .up, .axial)])
 		,
-		Color(name: ColorName.mesa, description: "Rusty hues", color: [(colors: ["#E65C0D", "#D20E01", "#C8001D"], .up, .axial)])
+		Color(name: ColorName.sunlight, description: "A sunny day",  color:
+			[(colors: ["#FFE838", "#FFEB52", "#fff399"], .downLeft, .axial)])
 		,
-		Color(name: ColorName.complements, description: "Opposites go together",  color:
-			[(colors: ["#f38300", "#000bf3"], .up, .axial)])
+		Color(name: ColorName.sunrise, description: "Early morning vibes",  color:
+			[(colors: ["#5663b5", "#5697b5", "#a6b556"], .down, .axial)])
+		,
+		Color(name: ColorName.sunset, description: "Sun getting low",  color:
+			[(colors: ["#ec3f11", "#80341f", "#603f76"], .up, .axial)])
 	]
 	
 	// static preview of premium colors
 	static var premiumList = [
-		Color(name: ColorName.nebula, description: "Space dust hues", color:
-			[(colors: ["#331551", "#54185D", "#872796"], .down, .axial)])
+		Color(name: ColorName.fall, description: "Autumn leaves",  color:
+			[(colors: ["#A25916", "#DC5009", "#F59B14"], .down, .axial)])
 		,
-		Color(name: ColorName.rainbow, description: "All your colors",  color:
-			[(colors: ["#da39ed", "#ed3939", "#ed9f39"], .downRight, .axial)])
+		Color(name: ColorName.fire, description: "Warm and lively",  color:
+			[(colors: ["#F56D29", "#F5A029", "#F5C929"], .downRight, .axial)])
 		,
 		Color(name: ColorName.mountain, description: "Calming dusky hues",  color:
 			[(colors: ["#9960D2", "#6960D2", "#5565DD"], .right, .axial)])
 		,
+		Color(name: ColorName.nebula, description: "Space dust hues", color:
+			[(colors: ["#331551", "#54185D", "#872796"], .down, .axial)])
+		,
 		Color(name: ColorName.pastel, description: "Something sweet",  color:
 			[(colors: ["#97f7a8", "#97f7da", "#97cdf7"], .left, .axial)])
 		,
-		Color(name: ColorName.space, description: "Deep outer limits",  color:
-			[(colors: ["#24145C", "#352470", "#242E70"], .downLeft, .axial)])
+		Color(name: ColorName.rainbow, description: "All your colors",  color:
+			[(colors: ["#da39ed", "#ed3939", "#ed9f39"], .downRight, .axial)])
 		,
-		Color(name: ColorName.fire, description: "Warm and lively",  color:
-			[(colors: ["#F56D29", "#F5A029", "#F5C929"], .downRight, .axial)])
+		Color(name: ColorName.space, description: "Deep outer limits",  color:
+			[(colors: ["#242E70", "#152542", "#38417A"], .down, .axial)])
 		,
 		Color(name: ColorName.spring, description: "Cheery springtime hues",  color:
 			[(colors: ["#3dd279", "#cde94a", "#e1ff9a"], .up, .axial)])
@@ -137,16 +140,13 @@ struct GradientManager {
 		Color(name: ColorName.summer, description: "Bright and sunny",  color:
 			[(colors: ["#FCD173", "#FCB582", "#FEBED4"], .down, .axial)])
 		,
-		Color(name: ColorName.fall, description: "Autumn leaves",  color:
-			[(colors: ["#A25916", "#DC5009", "#F59B14"], .down, .axial)])
-		,
-		Color(name: ColorName.winter, description: "Chilly snow",  color:
-			[(colors: ["#88A7F6", "#8CC6F2", "#8CC6F2"], .right, .axial)])
-		,
 		Color(name: ColorName.triads, description: "Harmonies of three", color: [(colors: ["#DED81F", "#1FDED8", "#D81FDE"], .downLeft, .axial)])
 		,
 		Color(name: ColorName.unicorn, description: "Saturated fantasy",  color:
 			[(colors: ["#2a54dd", "#2ac6dd"], .up, .axial)])
+		,
+		Color(name: ColorName.winter, description: "Chilly snow",  color:
+			[(colors: ["#88A7F6", "#8CC6F2", "#8CC6F2"], .right, .axial)])
 	]
 	
 	// manage saves and purchases

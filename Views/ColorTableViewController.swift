@@ -122,7 +122,7 @@ class ColorTableViewController: UITableViewController {
 			
 			if !products.isEmpty {
 				product = products[indexPath.row]
-				
+
 				// prevent selection if not purchased
 				if GradientManager.purchasedGradients[color.name] != nil {
 					cell.purchaseButton.setTitle("Purchased", for: .normal)
