@@ -50,7 +50,7 @@ class ColorTableViewController: UITableViewController {
 		}
 		
 		if isAuthorizedForPayments {
-			validate(productIdentifiers: [Products.unicorn, Products.nebula])
+			validate(productIdentifiers: [Products.nebula, Products.rainbow, Products.mountain, Products.pastel, Products.space, Products.fire, Products.spring, Products.summer, Products.fall, Products.winter, Products.triads, Products.unicorn])
 		}
 	}
 	

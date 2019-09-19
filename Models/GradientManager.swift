@@ -36,12 +36,6 @@ struct GradientManager {
 			 (colors: ["#36BDE2", "#2AA4C6", "#3C64D6"], .downRight, .axial),
 			 (colors: ["#3C64D6", "#30379A", "#1A5FAD"], .downLeft, .axial)]
 		,
-		ColorName.rainbow:
-			[(colors: ["#da39ed", "#ed3939", "#ed9f39"], .downRight, .axial),
-			 (colors: ["#ed9f39", "#edcd39", "#39ed45"], .down, .axial),
-			 (colors: ["#39ed45", "#39ede7", "#3989ed"], .downRight, .axial),
-			 (colors: ["#3989ed", "#8e39ed", "#da39ed"], .down, .axial)]
-		,
 		ColorName.sunlight:
 			[(colors: ["#FFE838", "#FFEB52", "#fff399"], .downLeft, .axial),
 			 (colors: ["#fff399", "#FFDB4D", "#FFCE47"], .down, .axial),
@@ -66,69 +60,11 @@ struct GradientManager {
 			 (colors: ["#e29823", "#e28123", "#caad28"], .down, .axial),
 			 (colors: ["#caad28", "#a3d2ed", "#5663b5"], .down, .axial)]
 		,
-		ColorName.fire:
-			[(colors: ["#F56D29", "#F5A029", "#F5C929"], .downRight, .axial),
-			 (colors: ["#F5C929", "#F6D946", "#F5BD24"], .down, .axial),
-			 (colors: ["#F5BD24", "#F5A124", "#E58E0B"], .downLeft, .axial),
-			 (colors: ["#E58E0B", "#CA440A", "#F56D29"], .down, .axial)]
-		,
-		ColorName.mountain:
-			[(colors: ["#9960D2", "#6960D2", "#5565DD"], .right, .axial),
-			 (colors: ["#5565DD", "#777FBB", "#9490D5"], .up, .axial),
-			 (colors: ["#9490D5", "#6964C4", "#945EC9"], .upLeft, .axial),
-			 (colors: ["#945EC9", "#7836BA", "#9960D2"], .up, .axial)]
-		,
-		ColorName.pastel:
-			[(colors: ["#97f7a8", "#97f7da", "#97cdf7"], .left, .axial),
-			 (colors: ["#97cdf7", "#9f94f9", "#f096f8"], .upLeft, .axial),
-			 (colors: ["#f096f8", "#f8da96", "#f7f197"], .upRight, .axial),
-			 (colors: ["#f7f197", "#cef995", "#97f7a8"], .up, .axial)]
-		,
-		ColorName.space:
-			[(colors: ["#24145C", "#352470", "#242E70"], .downLeft, .axial),
-			 (colors: ["#242E70", "#152542", "#38417A"], .down, .axial),
-			 (colors: ["#38417A", "#44288A", "#3C357E"], .downRight, .axial),
-			 (colors: ["#3C357E", "#262437", "#24145C"], .down, .axial)]
-		,
 		ColorName.sky:
 			[(colors: ["#0a98e1", "#5ac5fc", "#bee9ff"], .up, .axial),
 			 (colors: ["#bee9ff", "#bef0ff", "#e2f9ff"], .left, .axial),
 			 (colors: ["#e2f9ff", "#20b5e6", "#0067a9"], .up, .axial),
 			 (colors: ["#0067a9", "#69a2c6", "#0a98e1"], .upRight, .axial)]
-		,
-		ColorName.spring:
-			[(colors: ["#3dd279", "#cde94a", "#e1ff9a"], .up, .axial),
-			 (colors: ["#e1ff9a", "#ffbefd", "#88eff5"], .upRight, .axial),
-			 (colors: ["#88eff5", "#889ff5", "#7eb4fd"], .upLeft, .axial),
-			 (colors: ["#7eb4fd", "#41d6a0", "#3dd279"], .up, .axial)]
-		,
-		ColorName.summer:
-			[(colors: ["#FCD173", "#FCB582", "#FEBED4"], .down, .axial),
-			 (colors: ["#FEBED4", "#FEBEF6", "#FC7DED"], .downRight, .axial),
-			 (colors: ["#FC7DED", "#FCA664", "#FCEF64"], .down, .axial),
-			 (colors: ["#FCEF64", "#FCD164", "#FCD173"], .downLeft, .axial)]
-		,
-		ColorName.fall:
-			[(colors: ["#A25916", "#DC5009", "#F59B14"], .down, .axial),
-			 (colors: ["#F59B14", "#F5D314", "#D6BB1F"], .downLeft, .axial),
-			 (colors: ["#D6BB1F", "#CA982B", "#CA7A2B"], .down, .axial),
-			 (colors: ["#CA7A2B", "#93662F", "#A25916"], .downRight, .axial)]
-		,
-		ColorName.winter:
-			[(colors: ["#88A7F6", "#8CC6F2", "#8CC6F2"], .right, .axial),
-			 (colors: ["#8CC6F2", "#8DDDF2", "#70CEE6"], .upRight, .axial),
-			 (colors: ["#70CEE6", "#70B3E6", "#7EA1E2"], .up, .axial),
-			 (colors: ["#7EA1E2", "#A097E7", "#88A7F6"], .upRight, .axial)]
-		,
-		ColorName.complements:
-			[(colors: ["#f38300", "#000bf3"], .up, .axial),
-			 (colors: ["#9500f3", "#f3f000"], .up, .axial),
-			 (colors: ["#0bf300", "#f30000"], .up, .axial)]
-		,
-		ColorName.triads:
-			[(colors: ["#DED81F", "#1FDED8", "#D81FDE"], .downLeft, .axial),
-			 (colors: ["#9E1FDE", "#DE9E1F", "#1FDE9E"], .downLeft, .axial),
-			 (colors: ["#DE1F77", "#1F77DE", "#77DE1F"], .downLeft, .axial)]
 		,
 		ColorName.mesa:
 			[(colors: ["#E65C0D", "#D20E01", "#C8001D"], .up, .axial),
@@ -136,6 +72,10 @@ struct GradientManager {
 			 (colors: ["#84042F", "#970707", "#621D09"], .up, .axial),
 			 (colors: ["#621D09", "#3F120D", "#201513"], .up, .axial)]
 		,
+		ColorName.complements:
+			[(colors: ["#f38300", "#000bf3"], .up, .axial),
+			 (colors: ["#9500f3", "#f3f000"], .up, .axial),
+			 (colors: ["#0bf300", "#f30000"], .up, .axial)]
 	]
 	
 	// static previews of colors
@@ -150,9 +90,6 @@ struct GradientManager {
 		Color(name: ColorName.sea, description: "Cooling ocean vibes",  color:
 			[(colors: ["#1A5FAD", "#2D99EB", "#52ABEF"], .left, .axial)])
 		,
-		Color(name: ColorName.rainbow, description: "All your colors",  color:
-			[(colors: ["#da39ed", "#ed3939", "#ed9f39"], .downRight, .axial)])
-		,
 		Color(name: ColorName.sunlight, description: "A sunny day",  color:
 			[(colors: ["#FFE838", "#FFEB52", "#fff399"], .downLeft, .axial)])
 		,
@@ -165,8 +102,22 @@ struct GradientManager {
 		Color(name: ColorName.sunrise, description: "Early morning vibes",  color:
 			[(colors: ["#5663b5", "#5697b5", "#a6b556"], .down, .axial)])
 		,
-		Color(name: ColorName.fire, description: "Warm and lively",  color:
-			[(colors: ["#F56D29", "#F5A029", "#F5C929"], .downRight, .axial)])
+		Color(name: ColorName.sky, description: "Time for cloudgazing",  color:
+			[(colors: ["#0a98e1", "#5ac5fc", "#bee9ff"], .up, .axial)])
+		,
+		Color(name: ColorName.mesa, description: "Rusty hues", color: [(colors: ["#E65C0D", "#D20E01", "#C8001D"], .up, .axial)])
+		,
+		Color(name: ColorName.complements, description: "Opposites go together",  color:
+			[(colors: ["#f38300", "#000bf3"], .up, .axial)])
+	]
+	
+	// static preview of premium colors
+	static var premiumList = [
+		Color(name: ColorName.nebula, description: "Space dust hues", color:
+			[(colors: ["#331551", "#54185D", "#872796"], .down, .axial)])
+		,
+		Color(name: ColorName.rainbow, description: "All your colors",  color:
+			[(colors: ["#da39ed", "#ed3939", "#ed9f39"], .downRight, .axial)])
 		,
 		Color(name: ColorName.mountain, description: "Calming dusky hues",  color:
 			[(colors: ["#9960D2", "#6960D2", "#5565DD"], .right, .axial)])
@@ -177,8 +128,8 @@ struct GradientManager {
 		Color(name: ColorName.space, description: "Deep outer limits",  color:
 			[(colors: ["#24145C", "#352470", "#242E70"], .downLeft, .axial)])
 		,
-		Color(name: ColorName.sky, description: "Time for cloudgazing",  color:
-			[(colors: ["#0a98e1", "#5ac5fc", "#bee9ff"], .up, .axial)])
+		Color(name: ColorName.fire, description: "Warm and lively",  color:
+			[(colors: ["#F56D29", "#F5A029", "#F5C929"], .downRight, .axial)])
 		,
 		Color(name: ColorName.spring, description: "Cheery springtime hues",  color:
 			[(colors: ["#3dd279", "#cde94a", "#e1ff9a"], .up, .axial)])
@@ -192,18 +143,7 @@ struct GradientManager {
 		Color(name: ColorName.winter, description: "Chilly snow",  color:
 			[(colors: ["#88A7F6", "#8CC6F2", "#8CC6F2"], .right, .axial)])
 		,
-		Color(name: ColorName.complements, description: "Opposites go together",  color:
-			[(colors: ["#f38300", "#000bf3"], .up, .axial)])
-		,
 		Color(name: ColorName.triads, description: "Harmonies of three", color: [(colors: ["#DED81F", "#1FDED8", "#D81FDE"], .downLeft, .axial)])
-		,
-		Color(name: ColorName.mesa, description: "Rusty hues", color: [(colors: ["#E65C0D", "#D20E01", "#C8001D"], .up, .axial)])
-	]
-	
-	// static preview of premium colors
-	static var premiumList = [
-		Color(name: ColorName.nebula, description: "Space dust hues", color:
-			[(colors: ["#331551", "#54185D", "#872796"], .down, .axial)])
 		,
 		Color(name: ColorName.unicorn, description: "Saturated fantasy",  color:
 			[(colors: ["#2a54dd", "#2ac6dd"], .up, .axial)])
@@ -239,21 +179,43 @@ struct GradientManager {
 		}
 	}
 	
+	static func getColor(from color: String) -> ColorName {
+		if color == "Unicorn" {
+			return ColorName.unicorn
+		} else if color == "Nebula" {
+			return ColorName.nebula
+		} else if color == "Rainbow" {
+			return ColorName.rainbow
+		} else if color == "Mountain" {
+			return ColorName.mountain
+		} else if color == "Pastel" {
+			return ColorName.pastel
+		} else if color == "Space" {
+			return ColorName.space
+		} else if color == "Fire" {
+			return ColorName.fire
+		} else if color == "Spring" {
+			return ColorName.spring
+		} else if color == "Summer" {
+			return ColorName.summer
+		} else if color == "Fall" {
+			return ColorName.fall
+		} else if color == "Winter" {
+			return ColorName.winter
+		} else if color == "Triads" {
+			return ColorName.triads
+		} else {
+			return .automatic
+		}
+	}
+	
 	// convert purchased gradient into color object
 	static func addToPurchased(loaded: Gradient) {
 		if let first = GradientManager.convertToDirection(direction: loaded.firstDirection), let second = GradientManager.convertToDirection(direction: loaded.secondDirection), let third = GradientManager.convertToDirection(direction: loaded.thirdDirection), let fourth = GradientManager.convertToDirection(direction: loaded.fourthDirection) {
 			
 			let premiumGradient: [AnimatedGradientView.AnimationValue] = [(colors: loaded.first, first, .axial), (colors: loaded.second, second, .axial), (colors: loaded.third, third, .axial),(colors: loaded.fourth, fourth, .axial)]
 			
-			let color: ColorName = {
-				if loaded.name == "Unicorn" {
-					return ColorName.unicorn
-				} else if loaded.name == "Nebula" {
-					return ColorName.nebula
-				} else {
-					return .automatic
-				}
-			}()
+			let color = getColor(from: loaded.name)
 			
 			GradientManager.purchasedGradients.updateValue(premiumGradient, forKey: color)
 		}
@@ -261,19 +223,11 @@ struct GradientManager {
 	
 	// convert purchased savedgradient loaded from core data into color object
 	static func addToPurchased(loaded: SavedGradient) {
-		if let firstDirection = loaded.firstDirection, let secondDirection = loaded.secondDirection, let thirdDirection = loaded.thirdDirection, let fourthDirection = loaded.fourthDirection, let first = GradientManager.convertToDirection(direction: firstDirection), let second = GradientManager.convertToDirection(direction: secondDirection), let third = GradientManager.convertToDirection(direction: thirdDirection), let fourth = GradientManager.convertToDirection(direction: fourthDirection), let firstColors = loaded.firstColorSet, let secondColors = loaded.secondColorSet, let thirdColors = loaded.thirdColorSet, let fourthColors = loaded.fourthColorSet {
+		if let firstDirection = loaded.firstDirection, let secondDirection = loaded.secondDirection, let thirdDirection = loaded.thirdDirection, let fourthDirection = loaded.fourthDirection, let first = GradientManager.convertToDirection(direction: firstDirection), let second = GradientManager.convertToDirection(direction: secondDirection), let third = GradientManager.convertToDirection(direction: thirdDirection), let fourth = GradientManager.convertToDirection(direction: fourthDirection), let firstColors = loaded.firstColorSet, let secondColors = loaded.secondColorSet, let thirdColors = loaded.thirdColorSet, let fourthColors = loaded.fourthColorSet, let name = loaded.name {
 			
 			let premiumGradient: [AnimatedGradientView.AnimationValue] = [(colors: firstColors, first, .axial), (colors: secondColors, second, .axial), (colors: thirdColors, third, .axial),(colors: fourthColors, fourth, .axial)]
 			
-			let color: ColorName = {
-				if loaded.name == "Unicorn" {
-					return ColorName.unicorn
-				} else if loaded.name == "Nebula" {
-					return ColorName.nebula
-				} else {
-					return .automatic
-				}
-			}()
+			let color = getColor(from: name)
 			
 			GradientManager.purchasedGradients.updateValue(premiumGradient, forKey: color)
 		}

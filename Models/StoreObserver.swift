@@ -15,6 +15,7 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 	static let iapObserver = StoreObserver()
 	var restored: [String] = []
 	var purchased: [String] = []
+	static var isComplete = false
 	
 	override init() {
 		super.init()
@@ -53,6 +54,11 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 	
 	func paymentQueue(_ queue: SKPaymentQueue, updatedDownloads downloads: [SKDownload]) {
 		for download in downloads {
+			
+			if download == downloads.last {
+				StoreObserver.isComplete = true
+			}
+			
 			switch download.state {
 			case .active:
 				print("active")
@@ -119,17 +125,20 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 			print("error")
 		}
 		
-		// finish transactions after downloads have been processed
-		for transaction in SKPaymentQueue.default().transactions {
-			guard transaction.transactionState != .purchasing, transaction.transactionState != .deferred else {
-				return
+		if StoreObserver.isComplete {
+			// finish transactions after downloads have been processed
+			for transaction in SKPaymentQueue.default().transactions {
+				guard transaction.transactionState != .purchasing, transaction.transactionState != .deferred else {
+					return
+				}
+				
+				//Transaction can now be safely finished
+				SKPaymentQueue.default().finishTransaction(transaction)
 			}
 			
-			//Transaction can now be safely finished
-			SKPaymentQueue.default().finishTransaction(transaction)
+			// tell table to reload
+			NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
+			StoreObserver.isComplete = false
 		}
-		
-		// tell table to reload
-		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reload"), object: nil)
 	}
 }
