@@ -49,6 +49,8 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
+		 NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+		
 		mediaPlayer.beginGeneratingPlaybackNotifications()
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(songChanged), name: .MPMusicPlayerControllerNowPlayingItemDidChange, object: mediaPlayer)
@@ -94,6 +96,9 @@ class ViewController: UIViewController {
 		
 		let queue = DispatchQueue(label: "Monitor")
 		NetworkMonitor.monitor.start(queue: queue)
+	}
+	
+	@objc func willEnterForeground() {
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -245,7 +250,7 @@ class ViewController: UIViewController {
 	func checkStatus() {
 		if mediaPlayer.nowPlayingItem == nil {
 			currentlyPlaying.text = "No selection"
-			artist.text = "No selection"
+			artist.text = "-"
 			albumArt.image = UIImage(named: "noimage")
 			
 			playPauseButton.isEnabled = false
@@ -253,38 +258,46 @@ class ViewController: UIViewController {
 			backButton.isEnabled = false
 			repeatButton.isEnabled = false
 			shuffleButton.isEnabled = false
+			
+			print("check status nil")
+			MusicManager.songs.removeAll()
 		} else {
-			playPauseButton.isEnabled = true
-			forwardButton.isEnabled = true
-			backButton.isEnabled = true
-			repeatButton.isEnabled = true
-			shuffleButton.isEnabled = true
-			
-			setUI()
-			
-			if cloudItem && connection == false {
-				mediaPlayer.pause()
-				showAlert(title: "No network connection", message: "This song is streaming from the cloud - you may experience problems with playback until a data connection is restored.")
-			} else {
-				// nothing
-			}
-			
-			if mediaPlayer.playbackState == .playing {
-				switch textColor {
+			if !MusicManager.songs.isEmpty {
+				print("check status not nil")
+				playPauseButton.isEnabled = true
+				forwardButton.isEnabled = true
+				backButton.isEnabled = true
+				repeatButton.isEnabled = true
+				shuffleButton.isEnabled = true
+				
+				setUI()
+				
+				if cloudItem && connection == false {
+					mediaPlayer.pause()
+					showAlert(title: "No network connection", message: "This song is streaming from the cloud - you may experience problems with playback until a data connection is restored.")
+				} else {
+					// nothing
+				}
+				
+				if mediaPlayer.playbackState == .playing {
+					switch textColor {
 					case .white:
 						playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
 					case .black:
 						playPauseButton.setImage(UIImage(named: "pauseblack"), for: .normal)
+					}
+					
+				}  else if mediaPlayer.playbackState == .paused || mediaPlayer.playbackState == .stopped {
+					switch textColor {
+					case .white:
+						playPauseButton.setImage(UIImage(named: "play"), for: .normal)
+					case .black:
+						playPauseButton.setImage(UIImage(named: "playblack"), for: .normal)
+					}
+					
 				}
-				
-			}  else if mediaPlayer.playbackState == .paused || mediaPlayer.playbackState == .stopped {
-				switch textColor {
-				case .white:
-					playPauseButton.setImage(UIImage(named: "play"), for: .normal)
-				case .black:
-					playPauseButton.setImage(UIImage(named: "playblack"), for: .normal)
-				}
-				
+			} else {
+				save()
 			}
 		}
 	}
@@ -305,7 +318,7 @@ class ViewController: UIViewController {
 		
 		TimerManager.stopTimer()
 		
-		playPauseButton.isEnabled = true
+		//playPauseButton.isEnabled = true
 		
 		if mediaPlayer.playbackState == .playing {
 			startTimer(doesRepeat: false)
@@ -357,6 +370,7 @@ class ViewController: UIViewController {
 				print(song.title)
 			}
 			
+			print(MusicManager.songs)
 			print("old save")
 			
 			existing.songs = idList

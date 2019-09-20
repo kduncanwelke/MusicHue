@@ -406,7 +406,7 @@
                                             </subviews>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1su-FQ-dnr">
-                                            <rect key="frame" x="351" y="34" width="33" height="32"/>
+                                            <rect key="frame" x="356" y="34" width="33" height="32"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <state key="normal" title="Free"/>
                                             <connections>
@@ -415,7 +415,7 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="1su-FQ-dnr" secondAttribute="trailing" constant="30" id="5rI-2a-cpP"/>
+                                        <constraint firstAttribute="trailing" secondItem="1su-FQ-dnr" secondAttribute="trailing" constant="25" id="5rI-2a-cpP"/>
                                         <constraint firstItem="1su-FQ-dnr" firstAttribute="centerY" secondItem="Fpw-wx-MyI" secondAttribute="centerY" id="9pg-ih-2cS"/>
                                         <constraint firstItem="ot7-nQ-4iu" firstAttribute="top" secondItem="s4i-G5-SYe" secondAttribute="top" constant="10" id="AjG-6h-2k0"/>
                                         <constraint firstItem="Fpw-wx-MyI" firstAttribute="top" secondItem="s4i-G5-SYe" secondAttribute="topMargin" constant="20" id="Dpr-vs-omB"/>
