@@ -126,6 +126,13 @@ class SongsTableViewController: UITableViewController {
 	
 	// MARK: IBActions
 	
+	@IBAction func clearList(_ sender: UIBarButtonItem) {
+		MusicManager.songs.removeAll()
+		tableView.reloadData()
+		NotificationCenter.default.post(name: NSNotification.Name(rawValue: "songDeleted"), object: nil)
+	}
+	
+	
 	@IBAction func donePressed(_ sender: UIBarButtonItem) {
 		self.dismiss(animated: true, completion: nil)
 	}

@@ -354,6 +354,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Playlist" id="Vlx-33-BUk">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="e6b-zd-WSj">
+                            <connections>
+                                <action selector="clearList:" destination="EkC-zo-d7W" id="cmA-Sx-z12"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="4Sx-yd-ioZ">
                             <connections>
                                 <action selector="donePressed:" destination="EkC-zo-d7W" id="idA-Jt-HHY"/>
@@ -502,7 +507,7 @@
         <image name="backward" width="100" height="100"/>
         <image name="color" width="100" height="100"/>
         <image name="forward" width="100" height="100"/>
-        <image name="noimage" width="800" height="800"/>
+        <image name="noimage" width="300" height="300"/>
         <image name="pause" width="100" height="100"/>
         <image name="playlist" width="100" height="100"/>
         <image name="repeatoff" width="100" height="100"/>

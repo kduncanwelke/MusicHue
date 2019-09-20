@@ -42,7 +42,6 @@ class ViewController: UIViewController {
 	
 	let mediaPlayer = MPMusicPlayerController.systemMusicPlayer
 	let monitor = NWPathMonitor()
-	var connection = true
 	var cloudItem = false
 	var textColor = TextColor.white
 
@@ -65,14 +64,15 @@ class ViewController: UIViewController {
 		selectMusicButton.layer.cornerRadius = 10
 		viewPlaylistButton.layer.cornerRadius = 10
 		colorButton.layer.cornerRadius = 10
-		checkStatus()
+		
+		checkForNowPlaying()
 		
 		mediaPlayer.repeatMode = .none
 		mediaPlayer.shuffleMode = .off
 		
 		loadPurchasedGradients()
 		
-		NetworkMonitor.monitor.pathUpdateHandler = { [unowned self] path in
+		NetworkMonitor.monitor.pathUpdateHandler = { [weak self] path in
 			if path.status == .satisfied {
 				print("connection successful")
 				NetworkMonitor.connection = true
@@ -80,15 +80,16 @@ class ViewController: UIViewController {
 			} else {
 				print("no connection")
 				NetworkMonitor.connection = false
-				if let isAcloudItem = self.mediaPlayer.nowPlayingItem?.isCloudItem {
+				if let isAcloudItem = self?.mediaPlayer.nowPlayingItem?.isCloudItem {
 					if isAcloudItem {
-						self.cloudItem = true
-						
+						self?.cloudItem = true
+					
 						DispatchQueue.main.async {
-							self.checkStatus()
+							print("cloud item no connection")
+							self?.checkStatus()
 						}
 					} else {
-						self.cloudItem = false
+						self?.cloudItem = false
 					}
 				}
 			}
@@ -99,6 +100,7 @@ class ViewController: UIViewController {
 	}
 	
 	@objc func willEnterForeground() {
+		//checkForNowPlaying()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -106,7 +108,7 @@ class ViewController: UIViewController {
 		animatedGradient.animationValues = GradientManager.currentGradient
 		background.addSubview(animatedGradient)
 		
-		checkForNowPlaying()
+		checkStatus()
 	}
 	
 	override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -163,7 +165,8 @@ class ViewController: UIViewController {
 	
 	func setUI() {
 		currentlyPlaying.text = mediaPlayer.nowPlayingItem?.title
-		artist.text = mediaPlayer.nowPlayingItem?.albumArtist
+		artist.text = mediaPlayer.nowPlayingItem?.albumArtist ?? "-"
+		
 		if let albumVisual = mediaPlayer.nowPlayingItem?.artwork?.image(at: albumArt.bounds.size) {
 			albumArt.image = albumVisual
 		} else {
@@ -244,6 +247,7 @@ class ViewController: UIViewController {
 		} else {
 			loadSongs()
 			print("loaded")
+			checkStatus()
 		}
 	}
 	
@@ -259,8 +263,8 @@ class ViewController: UIViewController {
 			repeatButton.isEnabled = false
 			shuffleButton.isEnabled = false
 			
-			print("check status nil")
 			MusicManager.songs.removeAll()
+			print("check status nil")
 		} else {
 			if !MusicManager.songs.isEmpty {
 				print("check status not nil")
@@ -272,9 +276,12 @@ class ViewController: UIViewController {
 				
 				setUI()
 				
-				if cloudItem && connection == false {
+				if cloudItem && NetworkMonitor.connection == false {
+					print("no connection for item")
 					mediaPlayer.pause()
+					stateChanged()
 					showAlert(title: "No network connection", message: "This song is streaming from the cloud - you may experience problems with playback until a data connection is restored.")
+					return
 				} else {
 					// nothing
 				}
@@ -308,17 +315,16 @@ class ViewController: UIViewController {
 		mediaPlayer.setQueue(with: collection)
 		save()
 		mediaPlayer.prepareToPlay()
+		checkStatus()
 	}
 	
 	@objc func songChanged() {
 		print("song changed")
 		checkStatus()
 		timeLabel.text = "0:00"
-		progress.setProgress(0.0, animated: false)
+		updateProgress()
 		
 		TimerManager.stopTimer()
-		
-		//playPauseButton.isEnabled = true
 		
 		if mediaPlayer.playbackState == .playing {
 			startTimer(doesRepeat: false)
@@ -498,7 +504,7 @@ class ViewController: UIViewController {
 	@IBAction func playPausePressed(_ sender: UIButton) {
 		playPauseButton.animateButton()
 		
-		if cloudItem && connection == false {
+		if cloudItem && NetworkMonitor.connection == false {
 			return
 		}
 		
@@ -516,7 +522,7 @@ class ViewController: UIViewController {
 	}
 	
 	@IBAction func forwardLongPress(_ sender: UILongPressGestureRecognizer) {
-		if sender.state == .ended {
+		if sender.state == .ended || sender.state == .cancelled || sender.state == .failed {
 			mediaPlayer.endSeeking()
 			forwardButton.popUp()
 			checkStatus()
