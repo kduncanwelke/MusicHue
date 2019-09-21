@@ -88,7 +88,7 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 	
 	func processDownload(download: SKDownload) {
 		guard let hostedContentPath = download.contentURL?.appendingPathComponent("Contents") else {
-			print("failed")
+			print("Download failed")
 			return
 		}
 		
@@ -115,14 +115,14 @@ class StoreObserver: NSObject, SKPaymentTransactionObserver {
 						print(GradientManager.purchasedGradients)
 						
 					} else {
-						print("could not convert")
+						print("Could not convert plist to gradient")
 					}
 				} catch {
 					print("Error loading gradient data.")
 				}
 			}
-		} catch {
-			print("error")
+		} catch let error {
+			print("Error: \(error)")
 		}
 		
 		if StoreObserver.isComplete {

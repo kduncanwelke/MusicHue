@@ -98,7 +98,7 @@ struct GradientManager {
 		Color(name: ColorName.sea, description: "Cooling ocean vibes",  color:
 			[(colors: ["#1A5FAD", "#2D99EB", "#52ABEF"], .left, .axial)])
 		,
-		Color(name: ColorName.sky, description: "Time for cloudgazing",  color:
+		Color(name: ColorName.sky, description: "Cloudgazing",  color:
 			[(colors: ["#0a98e1", "#5ac5fc", "#bee9ff"], .up, .axial)])
 		,
 		Color(name: ColorName.sunlight, description: "A sunny day",  color:
@@ -134,7 +134,7 @@ struct GradientManager {
 		Color(name: ColorName.space, description: "Deep outer limits",  color:
 			[(colors: ["#242E70", "#152542", "#38417A"], .down, .axial)])
 		,
-		Color(name: ColorName.spring, description: "Cheery springtime hues",  color:
+		Color(name: ColorName.spring, description: "Springtime hues",  color:
 			[(colors: ["#3dd279", "#cde94a", "#e1ff9a"], .up, .axial)])
 		,
 		Color(name: ColorName.summer, description: "Bright and sunny",  color:

@@ -48,7 +48,6 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
-		 NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
 		
 		mediaPlayer.beginGeneratingPlaybackNotifications()
 		
@@ -99,16 +98,20 @@ class ViewController: UIViewController {
 		NetworkMonitor.monitor.start(queue: queue)
 	}
 	
-	@objc func willEnterForeground() {
-		//checkForNowPlaying()
-	}
-	
 	override func viewWillAppear(_ animated: Bool) {
 		let animatedGradient = AnimatedGradientView(frame: view.bounds)
 		animatedGradient.animationValues = GradientManager.currentGradient
 		background.addSubview(animatedGradient)
 		
 		checkStatus()
+		
+		print("will appear")
+	}
+	
+	override func viewWillLayoutSubviews() {
+		let animatedGradient = AnimatedGradientView(frame: self.view.bounds)
+		animatedGradient.animationValues = GradientManager.currentGradient
+		self.background.addSubview(animatedGradient)
 	}
 	
 	override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -153,7 +156,6 @@ class ViewController: UIViewController {
 	
 	// handle gradient display when orientation is changed
 	override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-		
 		DispatchQueue.main.async {
 			let animatedGradient = AnimatedGradientView(frame: self.view.bounds)
 			animatedGradient.animationValues = GradientManager.currentGradient
@@ -162,7 +164,7 @@ class ViewController: UIViewController {
 	}
 	
 	// MARK: Custom functions
-	
+
 	func setUI() {
 		currentlyPlaying.text = mediaPlayer.nowPlayingItem?.title
 		artist.text = mediaPlayer.nowPlayingItem?.albumArtist ?? "-"
@@ -650,6 +652,7 @@ class ViewController: UIViewController {
 		case .white:
 			currentlyPlaying.textColor = UIColor.white
 			artist.textColor = UIColor.white
+			timeLabel.textColor = UIColor.white
 			
 			currentlyPlaying.shadowColor = UIColor.black
 			artist.shadowColor = UIColor.black
@@ -690,6 +693,7 @@ class ViewController: UIViewController {
 		case .black:
 			currentlyPlaying.textColor = UIColor.black
 			artist.textColor = UIColor.black
+			timeLabel.textColor = UIColor.black
 			
 			currentlyPlaying.shadowColor = UIColor.white
 			currentlyPlaying.shadowOffset = CGSize(width: 1, height: 1)
