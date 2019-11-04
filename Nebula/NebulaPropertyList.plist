@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Nebula</string>
+	<key>firstDirection</key>
+	<string>down</string>
+	<key>secondDirection</key>
+	<string>downLeft</string>
+	<key>thirdDirection</key>
+	<string>down</string>
+	<key>fourthDirection</key>
+	<string>downLeft</string>
+	<key>first</key>
+	<array>
+		<string>#331551</string>
+		<string>#54185D</string>
+		<string>#872796</string>
+	</array>
+	<key>second</key>
+	<array>
+		<string>#872796</string>
+		<string>#CA1688</string>
+		<string>#E42FDE</string>
+	</array>
+	<key>third</key>
+	<array>
+		<string>#E42FDE</string>
+		<string>#B618B0</string>
+		<string>#703AAC</string>
+	</array>
+	<key>fourth</key>
+	<array>
+		<string>#703AAC</string>
+		<string>#371859</string>
+		<string>#331551</string>
+	</array>
+</dict>
+</plist>

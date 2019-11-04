@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Fall</string>
+	<key>firstDirection</key>
+	<string>down</string>
+	<key>secondDirection</key>
+	<string>downLeft</string>
+	<key>thirdDirection</key>
+	<string>down</string>
+	<key>fourthDirection</key>
+	<string>downRight</string>
+	<key>first</key>
+	<array>
+		<string>#A25916</string>
+		<string>#DC5009</string>
+		<string>#F59B14</string>
+	</array>
+	<key>second</key>
+	<array>
+		<string>#F59B14</string>
+		<string>#F5D314</string>
+		<string>#D6BB1F</string>
+	</array>
+	<key>third</key>
+	<array>
+		<string>#D6BB1F</string>
+		<string>#CA982B</string>
+		<string>#CA7A2B</string>
+	</array>
+	<key>fourth</key>
+	<array>
+		<string>#CA7A2B</string>
+		<string>#93662F</string>
+		<string>#A25916</string>
+	</array>
+</dict>
+</plist>

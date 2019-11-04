@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Summer</string>
+	<key>firstDirection</key>
+	<string>down</string>
+	<key>secondDirection</key>
+	<string>downRight</string>
+	<key>thirdDirection</key>
+	<string>down</string>
+	<key>fourthDirection</key>
+	<string>downLeft</string>
+	<key>first</key>
+	<array>
+		<string>#FCD173</string>
+		<string>#FCB582</string>
+		<string>#FEBED4</string>
+	</array>
+	<key>second</key>
+	<array>
+		<string>#FEBED4</string>
+		<string>#FEBEF6</string>
+		<string>#FC7DED</string>
+	</array>
+	<key>third</key>
+	<array>
+		<string>#FC7DED</string>
+		<string>#FCA664</string>
+		<string>#FCEF64</string>
+	</array>
+	<key>fourth</key>
+	<array>
+		<string>#FCEF64</string>
+		<string>#FCD164</string>
+		<string>#FCD173</string>
+	</array>
+</dict>
+</plist>

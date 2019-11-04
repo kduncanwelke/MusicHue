@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Unicorn</string>
+	<key>firstDirection</key>
+	<string>up</string>
+	<key>secondDirection</key>
+	<string>left</string>
+	<key>thirdDirection</key>
+	<string>down</string>
+	<key>fourthDirection</key>
+	<string>right</string>
+	<key>first</key>
+	<array>
+		<string>#2a54dd</string>
+		<string>#2ac6dd</string>
+	</array>
+	<key>second</key>
+	<array>
+		<string>#bff7ff</string>
+		<string>#f4bfff</string>
+	</array>
+	<key>third</key>
+	<array>
+		<string>#f07af7</string>
+		<string>#df32ea</string>
+	</array>
+	<key>fourth</key>
+	<array>
+		<string>#fcfbb8</string>
+		<string>#f5f353</string>
+	</array>
+</dict>
+</plist>

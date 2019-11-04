@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Fire</string>
+	<key>firstDirection</key>
+	<string>downRight</string>
+	<key>secondDirection</key>
+	<string>down</string>
+	<key>thirdDirection</key>
+	<string>downLeft</string>
+	<key>fourthDirection</key>
+	<string>down</string>
+	<key>first</key>
+	<array>
+		<string>#F56D29</string>
+		<string>#F5A029</string>
+		<string>#F5C929</string>
+	</array>
+	<key>second</key>
+	<array>
+		<string>#F5C929</string>
+		<string>#F6D946</string>
+		<string>#F5BD24</string>
+	</array>
+	<key>third</key>
+	<array>
+		<string>#F5BD24</string>
+		<string>#F5A124</string>
+		<string>#E58E0B</string>
+	</array>
+	<key>fourth</key>
+	<array>
+		<string>#E58E0B</string>
+		<string>#CA440A</string>
+		<string>#F56D29</string>
+	</array>
+</dict>
+</plist>

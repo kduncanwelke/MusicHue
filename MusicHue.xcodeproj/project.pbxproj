@@ -1,0 +1,1547 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2D0C6552232C27AF001709AD /* UnicornPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D0C6551232C27AF001709AD /* UnicornPropertyList.plist */; };
+		2D0C6554232C3406001709AD /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0C6553232C3406001709AD /* Gradient.swift */; };
+		2D2B032F232ABED200A30258 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2B032E232ABED200A30258 /* NetworkMonitor.swift */; };
+		2D2F9EB023104BA400B24BC9 /* MusicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F9EAF23104BA400B24BC9 /* MusicManager.swift */; };
+		2D2F9EB223104CA700B24BC9 /* SongsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F9EB123104CA700B24BC9 /* SongsTableViewController.swift */; };
+		2D2F9EB423104FC700B24BC9 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2F9EB323104FC700B24BC9 /* SongTableViewCell.swift */; };
+		2D317C50230DC9DB00CDE180 /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D317C4F230DC9DB00CDE180 /* TimerManager.swift */; };
+		2D5FBB812332D088005CE488 /* NebulaPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D5FBB802332D088005CE488 /* NebulaPropertyList.plist */; };
+		2D8604002333F38100435246 /* RainbowPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D8603FF2333F38100435246 /* RainbowPropertyList.plist */; };
+		2D86040A2333F6DF00435246 /* MountainPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D8604092333F6DF00435246 /* MountainPropertyList.plist */; };
+		2D8604142333F9FC00435246 /* PastelPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D8604132333F9FC00435246 /* PastelPropertyList.plist */; };
+		2D86041E2333FD2000435246 /* SpacePropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D86041D2333FD2000435246 /* SpacePropertyList.plist */; };
+		2D8604282333FEEE00435246 /* FirePropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D8604272333FEEE00435246 /* FirePropertyList.plist */; };
+		2D86043223340AE100435246 /* SpringPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D86043123340AE100435246 /* SpringPropertyList.plist */; };
+		2D86043C23340D3500435246 /* SummerPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D86043B23340D3500435246 /* SummerPropertyList.plist */; };
+		2D86044623340EC600435246 /* FallPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D86044523340EC600435246 /* FallPropertyList.plist */; };
+		2D8604502334107900435246 /* WinterPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D86044F2334107900435246 /* WinterPropertyList.plist */; };
+		2D86045A2334124600435246 /* TriadsPropertyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2D8604592334124600435246 /* TriadsPropertyList.plist */; };
+		2D8EF77323148CE000679378 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D8EF77123148CE000679378 /* Model.xcdatamodeld */; };
+		2D8EF77523148D4A00679378 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8EF77423148D4A00679378 /* CoreDataManager.swift */; };
+		2DAB7427230C7CF900DAA42D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAB7426230C7CF900DAA42D /* AppDelegate.swift */; };
+		2DAB7429230C7CF900DAA42D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAB7428230C7CF900DAA42D /* ViewController.swift */; };
+		2DAB742C230C7CF900DAA42D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DAB742A230C7CF900DAA42D /* Main.storyboard */; };
+		2DAB742E230C7CFB00DAA42D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DAB742D230C7CFB00DAA42D /* Assets.xcassets */; };
+		2DAB7431230C7CFB00DAA42D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DAB742F230C7CFB00DAA42D /* LaunchScreen.storyboard */; };
+		2DAB743C230C7CFB00DAA42D /* MusicHueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAB743B230C7CFB00DAA42D /* MusicHueTests.swift */; };
+		2DAB7447230C7E5000DAA42D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAB7446230C7E5000DAA42D /* Extensions.swift */; };
+		2DAB744A230C89A200DAA42D /* AnimatedGradientView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DAB7449230C89A200DAA42D /* AnimatedGradientView.framework */; };
+		2DBB86152323142400F6E839 /* TextColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB86142323142400F6E839 /* TextColor.swift */; };
+		2DC09EAF23295AB40013F187 /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC09EAE23295AB40013F187 /* StoreObserver.swift */; };
+		2DC09EB123297DE80013F187 /* CellButtonTapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC09EB023297DE80013F187 /* CellButtonTapDelegate.swift */; };
+		2DC2C65E2336844C00D2FEDA /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC2C65D2336844C00D2FEDA /* AboutViewController.swift */; };
+		2DE0EE58232843AF001E5F30 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE0EE57232843AF001E5F30 /* StoreKit.framework */; };
+		2DE0EE5A23284411001E5F30 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE0EE5923284411001E5F30 /* Products.swift */; };
+		2DF364B12311BEBE0080F9C5 /* GradientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF364B02311BEBE0080F9C5 /* GradientManager.swift */; };
+		2DF364B32311D7E10080F9C5 /* ColorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF364B22311D7E10080F9C5 /* ColorTableViewController.swift */; };
+		2DF364B52311D9170080F9C5 /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF364B42311D9170080F9C5 /* ColorTableViewCell.swift */; };
+		2DF364B72311DAF70080F9C5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF364B62311DAF70080F9C5 /* Color.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2DAB7438230C7CFB00DAA42D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2DAB741B230C7CF900DAA42D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2DAB7422230C7CF900DAA42D;
+			remoteInfo = MusicHue;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2D0C6546232C0F27001709AD /* Unicorn */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = Unicorn; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D0C6548232C0F27001709AD /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
+		2D0C6551232C27AF001709AD /* UnicornPropertyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UnicornPropertyList.plist; sourceTree = "<group>"; };
+		2D0C6553232C3406001709AD /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		2D2B032E232ABED200A30258 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		2D2F9EAF23104BA400B24BC9 /* MusicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicManager.swift; sourceTree = "<group>"; };
+		2D2F9EB123104CA700B24BC9 /* SongsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongsTableViewController.swift; sourceTree = "<group>"; };
+		2D2F9EB323104FC700B24BC9 /* SongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		2D317C4F230DC9DB00CDE180 /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		2D5FBB7A2332D04F005CE488 /* Nebula */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = Nebula; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D5FBB7C2332D04F005CE488 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
+		2D5FBB802332D088005CE488 /* NebulaPropertyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = NebulaPropertyList.plist; sourceTree = "<group>"; };
+		2D8603F92333F34900435246 /* Rainbow */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = Rainbow; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D8603FB2333F34900435246 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
+		2D8603FF2333F38100435246 /* RainbowPropertyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RainbowPropertyList.plist; sourceTree = "<group>"; };
+		2D8604032333F6B800435246 /* Mountain */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = Mountain; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D8604052333F6B800435246 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
+		2D8604092333F6DF00435246 /* MountainPropertyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MountainPropertyList.plist; sourceTree = "<group>"; };
+		2D86040D2333F93900435246 /* Pastel */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = Pastel; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D86040F2333F93900435246 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
+		2D8604132333F9FC00435246 /* PastelPropertyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PastelPropertyList.plist; sourceTree = "<group>"; };
+		2D8604172333FD0500435246 /* Space */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = Space; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D8604192333FD0500435246 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
+		2D86041D2333FD2000435246 /* SpacePropertyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SpacePropertyList.plist; sourceTree = "<group>"; };
+		2D8604212333FED500435246 /* Fire */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = Fire; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D8604232333FED500435246 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
+		2D8604272333FEEE00435246 /* FirePropertyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FirePropertyList.plist; sourceTree = "<group>"; };
+		2D86042B23340AC900435246 /* Spring */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = Spring; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D86042D23340AC900435246 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
+		2D86043123340AE100435246 /* SpringPropertyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SpringPropertyList.plist; sourceTree = "<group>"; };
+		2D86043523340D1C00435246 /* Summer */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = Summer; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D86043723340D1C00435246 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
+		2D86043B23340D3500435246 /* SummerPropertyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = SummerPropertyList.plist; sourceTree = "<group>"; };
+		2D86043F23340EAE00435246 /* Fall */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = Fall; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D86044123340EAE00435246 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
+		2D86044523340EC600435246 /* FallPropertyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FallPropertyList.plist; sourceTree = "<group>"; };
+		2D8604492334106100435246 /* Winter */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = Winter; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D86044B2334106100435246 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
+		2D86044F2334107900435246 /* WinterPropertyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WinterPropertyList.plist; sourceTree = "<group>"; };
+		2D8604532334122F00435246 /* Triads */ = {isa = PBXFileReference; explicitFileType = folder; includeInIndex = 0; path = Triads; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D8604552334122F00435246 /* ContentInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ContentInfo.plist; sourceTree = "<group>"; };
+		2D8604592334124600435246 /* TriadsPropertyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TriadsPropertyList.plist; sourceTree = "<group>"; };
+		2D8EF77223148CE000679378 /* Playlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Playlist.xcdatamodel; sourceTree = "<group>"; };
+		2D8EF77423148D4A00679378 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		2DAB7423230C7CF900DAA42D /* MusicHue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicHue.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DAB7426230C7CF900DAA42D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2DAB7428230C7CF900DAA42D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2DAB742B230C7CF900DAA42D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2DAB742D230C7CFB00DAA42D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2DAB7430230C7CFB00DAA42D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2DAB7432230C7CFB00DAA42D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DAB7437230C7CFB00DAA42D /* MusicHueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicHueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DAB743B230C7CFB00DAA42D /* MusicHueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHueTests.swift; sourceTree = "<group>"; };
+		2DAB743D230C7CFB00DAA42D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DAB7446230C7E5000DAA42D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		2DAB7449230C89A200DAA42D /* AnimatedGradientView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AnimatedGradientView.framework; path = Carthage/Build/iOS/AnimatedGradientView.framework; sourceTree = "<group>"; };
+		2DBB86142323142400F6E839 /* TextColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextColor.swift; sourceTree = "<group>"; };
+		2DC09EAE23295AB40013F187 /* StoreObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreObserver.swift; sourceTree = "<group>"; };
+		2DC09EB023297DE80013F187 /* CellButtonTapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellButtonTapDelegate.swift; sourceTree = "<group>"; };
+		2DC2C65D2336844C00D2FEDA /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		2DE0EE57232843AF001E5F30 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		2DE0EE5923284411001E5F30 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		2DF364B02311BEBE0080F9C5 /* GradientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientManager.swift; sourceTree = "<group>"; };
+		2DF364B22311D7E10080F9C5 /* ColorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewController.swift; sourceTree = "<group>"; };
+		2DF364B42311D9170080F9C5 /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
+		2DF364B62311DAF70080F9C5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2DAB7420230C7CF900DAA42D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DAB744A230C89A200DAA42D /* AnimatedGradientView.framework in Frameworks */,
+				2DE0EE58232843AF001E5F30 /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DAB7434230C7CFB00DAA42D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D0C6547232C0F27001709AD /* Unicorn */ = {
+			isa = PBXGroup;
+			children = (
+				2D0C6548232C0F27001709AD /* ContentInfo.plist */,
+				2D0C6551232C27AF001709AD /* UnicornPropertyList.plist */,
+			);
+			path = Unicorn;
+			sourceTree = "<group>";
+		};
+		2D317C51230DF8E700CDE180 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2DAB7428230C7CF900DAA42D /* ViewController.swift */,
+				2D2F9EB123104CA700B24BC9 /* SongsTableViewController.swift */,
+				2D2F9EB323104FC700B24BC9 /* SongTableViewCell.swift */,
+				2DF364B22311D7E10080F9C5 /* ColorTableViewController.swift */,
+				2DF364B42311D9170080F9C5 /* ColorTableViewCell.swift */,
+				2DC2C65D2336844C00D2FEDA /* AboutViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2D317C52230DF8F100CDE180 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2D317C4F230DC9DB00CDE180 /* TimerManager.swift */,
+				2D2F9EAF23104BA400B24BC9 /* MusicManager.swift */,
+				2DF364B02311BEBE0080F9C5 /* GradientManager.swift */,
+				2DF364B62311DAF70080F9C5 /* Color.swift */,
+				2D0C6553232C3406001709AD /* Gradient.swift */,
+				2DBB86142323142400F6E839 /* TextColor.swift */,
+				2DE0EE5923284411001E5F30 /* Products.swift */,
+				2DC09EAE23295AB40013F187 /* StoreObserver.swift */,
+				2D2B032E232ABED200A30258 /* NetworkMonitor.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2D4C49A42330179E001BBC5F /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				2D8EF77423148D4A00679378 /* CoreDataManager.swift */,
+				2D8EF77123148CE000679378 /* Model.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		2D5FBB7B2332D04F005CE488 /* Nebula */ = {
+			isa = PBXGroup;
+			children = (
+				2D5FBB7C2332D04F005CE488 /* ContentInfo.plist */,
+				2D5FBB802332D088005CE488 /* NebulaPropertyList.plist */,
+			);
+			path = Nebula;
+			sourceTree = "<group>";
+		};
+		2D8603FA2333F34900435246 /* Rainbow */ = {
+			isa = PBXGroup;
+			children = (
+				2D8603FB2333F34900435246 /* ContentInfo.plist */,
+				2D8603FF2333F38100435246 /* RainbowPropertyList.plist */,
+			);
+			path = Rainbow;
+			sourceTree = "<group>";
+		};
+		2D8604042333F6B800435246 /* Mountain */ = {
+			isa = PBXGroup;
+			children = (
+				2D8604052333F6B800435246 /* ContentInfo.plist */,
+				2D8604092333F6DF00435246 /* MountainPropertyList.plist */,
+			);
+			path = Mountain;
+			sourceTree = "<group>";
+		};
+		2D86040E2333F93900435246 /* Pastel */ = {
+			isa = PBXGroup;
+			children = (
+				2D86040F2333F93900435246 /* ContentInfo.plist */,
+				2D8604132333F9FC00435246 /* PastelPropertyList.plist */,
+			);
+			path = Pastel;
+			sourceTree = "<group>";
+		};
+		2D8604182333FD0500435246 /* Space */ = {
+			isa = PBXGroup;
+			children = (
+				2D8604192333FD0500435246 /* ContentInfo.plist */,
+				2D86041D2333FD2000435246 /* SpacePropertyList.plist */,
+			);
+			path = Space;
+			sourceTree = "<group>";
+		};
+		2D8604222333FED500435246 /* Fire */ = {
+			isa = PBXGroup;
+			children = (
+				2D8604232333FED500435246 /* ContentInfo.plist */,
+				2D8604272333FEEE00435246 /* FirePropertyList.plist */,
+			);
+			path = Fire;
+			sourceTree = "<group>";
+		};
+		2D86042C23340AC900435246 /* Spring */ = {
+			isa = PBXGroup;
+			children = (
+				2D86042D23340AC900435246 /* ContentInfo.plist */,
+				2D86043123340AE100435246 /* SpringPropertyList.plist */,
+			);
+			path = Spring;
+			sourceTree = "<group>";
+		};
+		2D86043623340D1C00435246 /* Summer */ = {
+			isa = PBXGroup;
+			children = (
+				2D86043723340D1C00435246 /* ContentInfo.plist */,
+				2D86043B23340D3500435246 /* SummerPropertyList.plist */,
+			);
+			path = Summer;
+			sourceTree = "<group>";
+		};
+		2D86044023340EAE00435246 /* Fall */ = {
+			isa = PBXGroup;
+			children = (
+				2D86044123340EAE00435246 /* ContentInfo.plist */,
+				2D86044523340EC600435246 /* FallPropertyList.plist */,
+			);
+			path = Fall;
+			sourceTree = "<group>";
+		};
+		2D86044A2334106100435246 /* Winter */ = {
+			isa = PBXGroup;
+			children = (
+				2D86044B2334106100435246 /* ContentInfo.plist */,
+				2D86044F2334107900435246 /* WinterPropertyList.plist */,
+			);
+			path = Winter;
+			sourceTree = "<group>";
+		};
+		2D8604542334122F00435246 /* Triads */ = {
+			isa = PBXGroup;
+			children = (
+				2D8604552334122F00435246 /* ContentInfo.plist */,
+				2D8604592334124600435246 /* TriadsPropertyList.plist */,
+			);
+			path = Triads;
+			sourceTree = "<group>";
+		};
+		2DAB741A230C7CF900DAA42D = {
+			isa = PBXGroup;
+			children = (
+				2DAB7425230C7CF900DAA42D /* MusicHue */,
+				2DAB743A230C7CFB00DAA42D /* MusicHueTests */,
+				2D0C6547232C0F27001709AD /* Unicorn */,
+				2D5FBB7B2332D04F005CE488 /* Nebula */,
+				2D8603FA2333F34900435246 /* Rainbow */,
+				2D8604042333F6B800435246 /* Mountain */,
+				2D86040E2333F93900435246 /* Pastel */,
+				2D8604182333FD0500435246 /* Space */,
+				2D8604222333FED500435246 /* Fire */,
+				2D86042C23340AC900435246 /* Spring */,
+				2D86043623340D1C00435246 /* Summer */,
+				2D86044023340EAE00435246 /* Fall */,
+				2D86044A2334106100435246 /* Winter */,
+				2D8604542334122F00435246 /* Triads */,
+				2DAB7424230C7CF900DAA42D /* Products */,
+				2DAB7448230C89A200DAA42D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2DAB7424230C7CF900DAA42D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2DAB7423230C7CF900DAA42D /* MusicHue.app */,
+				2DAB7437230C7CFB00DAA42D /* MusicHueTests.xctest */,
+				2D0C6546232C0F27001709AD /* Unicorn */,
+				2D5FBB7A2332D04F005CE488 /* Nebula */,
+				2D8603F92333F34900435246 /* Rainbow */,
+				2D8604032333F6B800435246 /* Mountain */,
+				2D86040D2333F93900435246 /* Pastel */,
+				2D8604172333FD0500435246 /* Space */,
+				2D8604212333FED500435246 /* Fire */,
+				2D86042B23340AC900435246 /* Spring */,
+				2D86043523340D1C00435246 /* Summer */,
+				2D86043F23340EAE00435246 /* Fall */,
+				2D8604492334106100435246 /* Winter */,
+				2D8604532334122F00435246 /* Triads */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2DAB7425230C7CF900DAA42D /* MusicHue */ = {
+			isa = PBXGroup;
+			children = (
+				2DAB7426230C7CF900DAA42D /* AppDelegate.swift */,
+				2D317C51230DF8E700CDE180 /* Views */,
+				2D317C52230DF8F100CDE180 /* Models */,
+				2DAB742A230C7CF900DAA42D /* Main.storyboard */,
+				2DAB7446230C7E5000DAA42D /* Extensions.swift */,
+				2DC09EB023297DE80013F187 /* CellButtonTapDelegate.swift */,
+				2D4C49A42330179E001BBC5F /* Core Data */,
+				2DAB742D230C7CFB00DAA42D /* Assets.xcassets */,
+				2DAB742F230C7CFB00DAA42D /* LaunchScreen.storyboard */,
+				2DAB7432230C7CFB00DAA42D /* Info.plist */,
+			);
+			path = MusicHue;
+			sourceTree = "<group>";
+		};
+		2DAB743A230C7CFB00DAA42D /* MusicHueTests */ = {
+			isa = PBXGroup;
+			children = (
+				2DAB743B230C7CFB00DAA42D /* MusicHueTests.swift */,
+				2DAB743D230C7CFB00DAA42D /* Info.plist */,
+			);
+			path = MusicHueTests;
+			sourceTree = "<group>";
+		};
+		2DAB7448230C89A200DAA42D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DE0EE57232843AF001E5F30 /* StoreKit.framework */,
+				2DAB7449230C89A200DAA42D /* AnimatedGradientView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2D0C6545232C0F27001709AD /* Unicorn */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D0C6549232C0F27001709AD /* Build configuration list for PBXNativeTarget "Unicorn" */;
+			buildPhases = (
+				2D0C6544232C0F27001709AD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Unicorn;
+			productName = Unicorn;
+			productReference = 2D0C6546232C0F27001709AD /* Unicorn */;
+			productType = "com.apple.product-type.in-app-purchase-content";
+		};
+		2D5FBB792332D04F005CE488 /* Nebula */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D5FBB7F2332D04F005CE488 /* Build configuration list for PBXNativeTarget "Nebula" */;
+			buildPhases = (
+				2D5FBB782332D04F005CE488 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nebula;
+			productName = Nebula;
+			productReference = 2D5FBB7A2332D04F005CE488 /* Nebula */;
+			productType = "com.apple.product-type.in-app-purchase-content";
+		};
+		2D8603F82333F34900435246 /* Rainbow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D8603FE2333F34900435246 /* Build configuration list for PBXNativeTarget "Rainbow" */;
+			buildPhases = (
+				2D8603F72333F34900435246 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Rainbow;
+			productName = Rainbow;
+			productReference = 2D8603F92333F34900435246 /* Rainbow */;
+			productType = "com.apple.product-type.in-app-purchase-content";
+		};
+		2D8604022333F6B800435246 /* Mountain */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D8604062333F6B800435246 /* Build configuration list for PBXNativeTarget "Mountain" */;
+			buildPhases = (
+				2D8604012333F6B800435246 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mountain;
+			productName = Mountain;
+			productReference = 2D8604032333F6B800435246 /* Mountain */;
+			productType = "com.apple.product-type.in-app-purchase-content";
+		};
+		2D86040C2333F93900435246 /* Pastel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D8604102333F93900435246 /* Build configuration list for PBXNativeTarget "Pastel" */;
+			buildPhases = (
+				2D86040B2333F93900435246 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pastel;
+			productName = Pastel;
+			productReference = 2D86040D2333F93900435246 /* Pastel */;
+			productType = "com.apple.product-type.in-app-purchase-content";
+		};
+		2D8604162333FD0500435246 /* Space */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D86041A2333FD0500435246 /* Build configuration list for PBXNativeTarget "Space" */;
+			buildPhases = (
+				2D8604152333FD0500435246 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Space;
+			productName = Space;
+			productReference = 2D8604172333FD0500435246 /* Space */;
+			productType = "com.apple.product-type.in-app-purchase-content";
+		};
+		2D8604202333FED500435246 /* Fire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D8604242333FED500435246 /* Build configuration list for PBXNativeTarget "Fire" */;
+			buildPhases = (
+				2D86041F2333FED500435246 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fire;
+			productName = Fire;
+			productReference = 2D8604212333FED500435246 /* Fire */;
+			productType = "com.apple.product-type.in-app-purchase-content";
+		};
+		2D86042A23340AC900435246 /* Spring */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D86042E23340AC900435246 /* Build configuration list for PBXNativeTarget "Spring" */;
+			buildPhases = (
+				2D86042923340AC900435246 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Spring;
+			productName = Spring;
+			productReference = 2D86042B23340AC900435246 /* Spring */;
+			productType = "com.apple.product-type.in-app-purchase-content";
+		};
+		2D86043423340D1C00435246 /* Summer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D86043823340D1C00435246 /* Build configuration list for PBXNativeTarget "Summer" */;
+			buildPhases = (
+				2D86043323340D1C00435246 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Summer;
+			productName = Summer;
+			productReference = 2D86043523340D1C00435246 /* Summer */;
+			productType = "com.apple.product-type.in-app-purchase-content";
+		};
+		2D86043E23340EAE00435246 /* Fall */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D86044223340EAE00435246 /* Build configuration list for PBXNativeTarget "Fall" */;
+			buildPhases = (
+				2D86043D23340EAE00435246 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fall;
+			productName = Fall;
+			productReference = 2D86043F23340EAE00435246 /* Fall */;
+			productType = "com.apple.product-type.in-app-purchase-content";
+		};
+		2D8604482334106100435246 /* Winter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D86044C2334106100435246 /* Build configuration list for PBXNativeTarget "Winter" */;
+			buildPhases = (
+				2D8604472334106100435246 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Winter;
+			productName = Winter;
+			productReference = 2D8604492334106100435246 /* Winter */;
+			productType = "com.apple.product-type.in-app-purchase-content";
+		};
+		2D8604522334122F00435246 /* Triads */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2D8604562334122F00435246 /* Build configuration list for PBXNativeTarget "Triads" */;
+			buildPhases = (
+				2D8604512334122F00435246 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Triads;
+			productName = Triads;
+			productReference = 2D8604532334122F00435246 /* Triads */;
+			productType = "com.apple.product-type.in-app-purchase-content";
+		};
+		2DAB7422230C7CF900DAA42D /* MusicHue */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DAB7440230C7CFB00DAA42D /* Build configuration list for PBXNativeTarget "MusicHue" */;
+			buildPhases = (
+				2DAB741F230C7CF900DAA42D /* Sources */,
+				2DAB7420230C7CF900DAA42D /* Frameworks */,
+				2DAB7421230C7CF900DAA42D /* Resources */,
+				2DAB744B230C89CC00DAA42D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MusicHue;
+			productName = MusicHue;
+			productReference = 2DAB7423230C7CF900DAA42D /* MusicHue.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2DAB7436230C7CFB00DAA42D /* MusicHueTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2DAB7443230C7CFB00DAA42D /* Build configuration list for PBXNativeTarget "MusicHueTests" */;
+			buildPhases = (
+				2DAB7433230C7CFB00DAA42D /* Sources */,
+				2DAB7434230C7CFB00DAA42D /* Frameworks */,
+				2DAB7435230C7CFB00DAA42D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2DAB7439230C7CFB00DAA42D /* PBXTargetDependency */,
+			);
+			name = MusicHueTests;
+			productName = MusicHueTests;
+			productReference = 2DAB7437230C7CFB00DAA42D /* MusicHueTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2DAB741B230C7CF900DAA42D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "Kate Duncan-Welke";
+				TargetAttributes = {
+					2D0C6545232C0F27001709AD = {
+						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
+					};
+					2D5FBB792332D04F005CE488 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					2D8603F82333F34900435246 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					2D8604022333F6B800435246 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					2D86040C2333F93900435246 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					2D8604162333FD0500435246 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					2D8604202333FED500435246 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					2D86042A23340AC900435246 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					2D86043423340D1C00435246 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					2D86043E23340EAE00435246 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					2D8604482334106100435246 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					2D8604522334122F00435246 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					2DAB7422230C7CF900DAA42D = {
+						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
+					};
+					2DAB7436230C7CFB00DAA42D = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 2DAB7422230C7CF900DAA42D;
+					};
+				};
+			};
+			buildConfigurationList = 2DAB741E230C7CF900DAA42D /* Build configuration list for PBXProject "MusicHue" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2DAB741A230C7CF900DAA42D;
+			productRefGroup = 2DAB7424230C7CF900DAA42D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2DAB7422230C7CF900DAA42D /* MusicHue */,
+				2DAB7436230C7CFB00DAA42D /* MusicHueTests */,
+				2D0C6545232C0F27001709AD /* Unicorn */,
+				2D5FBB792332D04F005CE488 /* Nebula */,
+				2D8603F82333F34900435246 /* Rainbow */,
+				2D8604022333F6B800435246 /* Mountain */,
+				2D86040C2333F93900435246 /* Pastel */,
+				2D8604162333FD0500435246 /* Space */,
+				2D8604202333FED500435246 /* Fire */,
+				2D86042A23340AC900435246 /* Spring */,
+				2D86043423340D1C00435246 /* Summer */,
+				2D86043E23340EAE00435246 /* Fall */,
+				2D8604482334106100435246 /* Winter */,
+				2D8604522334122F00435246 /* Triads */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2D0C6544232C0F27001709AD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D0C6552232C27AF001709AD /* UnicornPropertyList.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D5FBB782332D04F005CE488 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D5FBB812332D088005CE488 /* NebulaPropertyList.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D8603F72333F34900435246 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D8604002333F38100435246 /* RainbowPropertyList.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D8604012333F6B800435246 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D86040A2333F6DF00435246 /* MountainPropertyList.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D86040B2333F93900435246 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D8604142333F9FC00435246 /* PastelPropertyList.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D8604152333FD0500435246 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D86041E2333FD2000435246 /* SpacePropertyList.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D86041F2333FED500435246 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D8604282333FEEE00435246 /* FirePropertyList.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D86042923340AC900435246 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D86043223340AE100435246 /* SpringPropertyList.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D86043323340D1C00435246 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D86043C23340D3500435246 /* SummerPropertyList.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D86043D23340EAE00435246 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D86044623340EC600435246 /* FallPropertyList.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D8604472334106100435246 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D8604502334107900435246 /* WinterPropertyList.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2D8604512334122F00435246 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D86045A2334124600435246 /* TriadsPropertyList.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DAB7421230C7CF900DAA42D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DAB7431230C7CFB00DAA42D /* LaunchScreen.storyboard in Resources */,
+				2DAB742E230C7CFB00DAA42D /* Assets.xcassets in Resources */,
+				2DAB742C230C7CF900DAA42D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DAB7435230C7CFB00DAA42D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2DAB744B230C89CC00DAA42D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/AnimatedGradientView.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/AnimatedGradientView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2DAB741F230C7CF900DAA42D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D2F9EB223104CA700B24BC9 /* SongsTableViewController.swift in Sources */,
+				2DF364B32311D7E10080F9C5 /* ColorTableViewController.swift in Sources */,
+				2DBB86152323142400F6E839 /* TextColor.swift in Sources */,
+				2DC09EAF23295AB40013F187 /* StoreObserver.swift in Sources */,
+				2DF364B72311DAF70080F9C5 /* Color.swift in Sources */,
+				2D0C6554232C3406001709AD /* Gradient.swift in Sources */,
+				2DF364B12311BEBE0080F9C5 /* GradientManager.swift in Sources */,
+				2DAB7429230C7CF900DAA42D /* ViewController.swift in Sources */,
+				2D2B032F232ABED200A30258 /* NetworkMonitor.swift in Sources */,
+				2D317C50230DC9DB00CDE180 /* TimerManager.swift in Sources */,
+				2DF364B52311D9170080F9C5 /* ColorTableViewCell.swift in Sources */,
+				2D8EF77523148D4A00679378 /* CoreDataManager.swift in Sources */,
+				2D2F9EB423104FC700B24BC9 /* SongTableViewCell.swift in Sources */,
+				2DC09EB123297DE80013F187 /* CellButtonTapDelegate.swift in Sources */,
+				2DAB7447230C7E5000DAA42D /* Extensions.swift in Sources */,
+				2DAB7427230C7CF900DAA42D /* AppDelegate.swift in Sources */,
+				2DE0EE5A23284411001E5F30 /* Products.swift in Sources */,
+				2D2F9EB023104BA400B24BC9 /* MusicManager.swift in Sources */,
+				2DC2C65E2336844C00D2FEDA /* AboutViewController.swift in Sources */,
+				2D8EF77323148CE000679378 /* Model.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2DAB7433230C7CFB00DAA42D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DAB743C230C7CFB00DAA42D /* MusicHueTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2DAB7439230C7CFB00DAA42D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2DAB7422230C7CF900DAA42D /* MusicHue */;
+			targetProxy = 2DAB7438230C7CFB00DAA42D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2DAB742A230C7CF900DAA42D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DAB742B230C7CF900DAA42D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2DAB742F230C7CFB00DAA42D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2DAB7430230C7CFB00DAA42D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2D0C654A232C0F27001709AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Unicorn/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = "";
+			};
+			name = Debug;
+		};
+		2D0C654B232C0F27001709AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Unicorn/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = "";
+			};
+			name = Release;
+		};
+		2D5FBB7D2332D04F005CE488 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Nebula/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Debug;
+		};
+		2D5FBB7E2332D04F005CE488 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Nebula/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Release;
+		};
+		2D8603FC2333F34900435246 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Rainbow/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Debug;
+		};
+		2D8603FD2333F34900435246 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Rainbow/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Release;
+		};
+		2D8604072333F6B800435246 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Mountain/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Debug;
+		};
+		2D8604082333F6B800435246 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Mountain/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Release;
+		};
+		2D8604112333F93900435246 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Pastel/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Debug;
+		};
+		2D8604122333F93900435246 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Pastel/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Release;
+		};
+		2D86041B2333FD0500435246 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Space/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Debug;
+		};
+		2D86041C2333FD0500435246 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Space/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Release;
+		};
+		2D8604252333FED500435246 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Fire/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Debug;
+		};
+		2D8604262333FED500435246 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Fire/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Release;
+		};
+		2D86042F23340AC900435246 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Spring/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Debug;
+		};
+		2D86043023340AC900435246 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Spring/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Release;
+		};
+		2D86043923340D1C00435246 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Summer/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Debug;
+		};
+		2D86043A23340D1C00435246 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Summer/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Release;
+		};
+		2D86044323340EAE00435246 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Fall/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Debug;
+		};
+		2D86044423340EAE00435246 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Fall/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Release;
+		};
+		2D86044D2334106100435246 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Winter/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Debug;
+		};
+		2D86044E2334106100435246 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Winter/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Release;
+		};
+		2D8604572334122F00435246 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Triads/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Debug;
+		};
+		2D8604582334122F00435246 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = Triads/ContentInfo.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/InAppPurchaseContent";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = "";
+			};
+			name = Release;
+		};
+		2DAB743E230C7CFB00DAA42D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2DAB743F230C7CFB00DAA42D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2DAB7441230C7CFB00DAA42D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = MusicHue/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kduncan-welke.MusicHue";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2DAB7442230C7CFB00DAA42D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = MusicHue/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kduncan-welke.MusicHue";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2DAB7444230C7CFB00DAA42D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = MusicHueTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kduncan-welke.MusicHueTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicHue.app/MusicHue";
+			};
+			name = Debug;
+		};
+		2DAB7445230C7CFB00DAA42D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = A8R365GJ52;
+				INFOPLIST_FILE = MusicHueTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kduncan-welke.MusicHueTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MusicHue.app/MusicHue";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D0C6549232C0F27001709AD /* Build configuration list for PBXNativeTarget "Unicorn" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D0C654A232C0F27001709AD /* Debug */,
+				2D0C654B232C0F27001709AD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D5FBB7F2332D04F005CE488 /* Build configuration list for PBXNativeTarget "Nebula" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D5FBB7D2332D04F005CE488 /* Debug */,
+				2D5FBB7E2332D04F005CE488 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8603FE2333F34900435246 /* Build configuration list for PBXNativeTarget "Rainbow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D8603FC2333F34900435246 /* Debug */,
+				2D8603FD2333F34900435246 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8604062333F6B800435246 /* Build configuration list for PBXNativeTarget "Mountain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D8604072333F6B800435246 /* Debug */,
+				2D8604082333F6B800435246 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8604102333F93900435246 /* Build configuration list for PBXNativeTarget "Pastel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D8604112333F93900435246 /* Debug */,
+				2D8604122333F93900435246 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D86041A2333FD0500435246 /* Build configuration list for PBXNativeTarget "Space" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D86041B2333FD0500435246 /* Debug */,
+				2D86041C2333FD0500435246 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8604242333FED500435246 /* Build configuration list for PBXNativeTarget "Fire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D8604252333FED500435246 /* Debug */,
+				2D8604262333FED500435246 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D86042E23340AC900435246 /* Build configuration list for PBXNativeTarget "Spring" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D86042F23340AC900435246 /* Debug */,
+				2D86043023340AC900435246 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D86043823340D1C00435246 /* Build configuration list for PBXNativeTarget "Summer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D86043923340D1C00435246 /* Debug */,
+				2D86043A23340D1C00435246 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D86044223340EAE00435246 /* Build configuration list for PBXNativeTarget "Fall" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D86044323340EAE00435246 /* Debug */,
+				2D86044423340EAE00435246 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D86044C2334106100435246 /* Build configuration list for PBXNativeTarget "Winter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D86044D2334106100435246 /* Debug */,
+				2D86044E2334106100435246 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8604562334122F00435246 /* Build configuration list for PBXNativeTarget "Triads" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D8604572334122F00435246 /* Debug */,
+				2D8604582334122F00435246 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DAB741E230C7CF900DAA42D /* Build configuration list for PBXProject "MusicHue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DAB743E230C7CFB00DAA42D /* Debug */,
+				2DAB743F230C7CFB00DAA42D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DAB7440230C7CFB00DAA42D /* Build configuration list for PBXNativeTarget "MusicHue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DAB7441230C7CFB00DAA42D /* Debug */,
+				2DAB7442230C7CFB00DAA42D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2DAB7443230C7CFB00DAA42D /* Build configuration list for PBXNativeTarget "MusicHueTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2DAB7444230C7CFB00DAA42D /* Debug */,
+				2DAB7445230C7CFB00DAA42D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2D8EF77123148CE000679378 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2D8EF77223148CE000679378 /* Playlist.xcdatamodel */,
+			);
+			currentVersion = 2D8EF77223148CE000679378 /* Playlist.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2DAB741B230C7CF900DAA42D /* Project object */;
+}

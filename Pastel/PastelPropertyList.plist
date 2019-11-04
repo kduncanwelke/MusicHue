@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Pastel</string>
+	<key>firstDirection</key>
+	<string>left</string>
+	<key>secondDirection</key>
+	<string>upLeft</string>
+	<key>thirdDirection</key>
+	<string>upRight</string>
+	<key>fourthDirection</key>
+	<string>up</string>
+	<key>first</key>
+	<array>
+		<string>#97f7a8</string>
+		<string>#97f7da</string>
+		<string>#97cdf7</string>
+	</array>
+	<key>second</key>
+	<array>
+		<string>#97cdf7</string>
+		<string>#9f94f9</string>
+		<string>#f096f8</string>
+	</array>
+	<key>third</key>
+	<array>
+		<string>#f096f8</string>
+		<string>#f8da96</string>
+		<string>#f7f197</string>
+	</array>
+	<key>fourth</key>
+	<array>
+		<string>#f7f197</string>
+		<string>#cef995</string>
+		<string>#97f7a8</string>
+	</array>
+</dict>
+</plist>

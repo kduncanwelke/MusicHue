@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Spring</string>
+	<key>firstDirection</key>
+	<string>up</string>
+	<key>secondDirection</key>
+	<string>upRight</string>
+	<key>thirdDirection</key>
+	<string>upLeft</string>
+	<key>fourthDirection</key>
+	<string>up</string>
+	<key>first</key>
+	<array>
+		<string>#3dd279</string>
+		<string>#cde94a</string>
+		<string>#e1ff9a</string>
+	</array>
+	<key>second</key>
+	<array>
+		<string>#e1ff9a</string>
+		<string>#ffbefd</string>
+		<string>#88eff5</string>
+	</array>
+	<key>third</key>
+	<array>
+		<string>#88eff5</string>
+		<string>#889ff5</string>
+		<string>#7eb4fd</string>
+	</array>
+	<key>fourth</key>
+	<array>
+		<string>#7eb4fd</string>
+		<string>#41d6a0</string>
+		<string>#3dd279</string>
+	</array>
+</dict>
+</plist>
